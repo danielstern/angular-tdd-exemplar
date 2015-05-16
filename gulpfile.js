@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var karma = require('karma').server;
 
 /* build our app to the dist folder */
 gulp.task('default',function(){
@@ -8,8 +9,11 @@ gulp.task('default',function(){
 });
 
 /* run all tests */
-gulp.task('test',function(){
-	console.log("Running tests.");
+gulp.task('test', function (done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
 });
 
 /* serve the app */

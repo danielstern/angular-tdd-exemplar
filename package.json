@@ -10,6 +10,12 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.7.1",
-    "gulp": "^3.8.11"
+    "gulp": "^3.8.11",
+    "gulp-karma": "0.0.4",
+    "karma": "^0.12.31"
+  },
+  "dependencies": {
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.2.5"
   }
 }
