@@ -3,7 +3,7 @@ angular.module('AddressBook',[])
 	console.log("Address Book has initialized.");
 })
 .service("contactService",function(){
-	var contacts = [];
+	var contacts = [{name:"Test Wilson"}];
 	
 	function getContacts(){
 		return contacts;
@@ -12,4 +12,7 @@ angular.module('AddressBook',[])
 	return {
 		getContacts:getContacts
 	}
+})
+.controller("ContactList",function($scope,contactService){
+	$scope.contacts = contactService.getContacts();
 })

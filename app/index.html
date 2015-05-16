@@ -3,7 +3,14 @@
 </head>
 <body ng-app='AddressBook'>
 	Welcome to my Address Book.
-	<script src='bower_components/angular/angular.js'></script>
+	<div ng-controller="ContactList">
+		<h2>Contacts</h2>
+		<div class=contact ng-repeat="contact in contacts">
+			 ( a contact )
+		</div>
+	</div>
 	
+	<!-- SCRIPTZ GO HERE -->
+	<script src='bower_components/angular/angular.js'></script>
 	<script src='scripts/app.js'></script>
 </body>
