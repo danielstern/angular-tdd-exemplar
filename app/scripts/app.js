@@ -5,6 +5,7 @@ angular.module('AddressBook',[])
 .service("contactService",function($http,$q,$interval){
 	var contactUrl = 'http://localhost:3000/contacts';
 	var contacts = undefined;
+	console.log("Contact service init.");
 	$http.get(contactUrl)
 	.then(function(res){
 		contacts = res.data;
@@ -14,8 +15,6 @@ angular.module('AddressBook',[])
 	function getContacts(){
 		var deferral = $q.defer();
 		
-		console.log("getting contacts...");
-
 		var watch = $interval(function(){
 			if (contacts){
 				$interval(watch);

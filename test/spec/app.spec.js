@@ -3,8 +3,15 @@ var expect = chai.expect;
 
 describe("The Contact Service",function(){
 	beforeEach(function(){
-		module('AddressBook');
 		
+			module('AddressBook');
+//			module('ngMock');
+			
+			inject(function(_contactService_,_$httpBackend_){
+				contactService = _contactService_;
+				$httpBackend = _$httpBackend_;	
+					
+		})
 	})
 	
 	it('should return an array of contacts',
@@ -14,34 +21,28 @@ describe("The Contact Service",function(){
 		}
 	));
 	
-	describe("The Contacts",function(){
+	describe("The Contacts",function(){	
 		
-		beforeEach(function(){
-			module('AddressBook');
-			
-			inject(function(_contactService_,$httpBackend){
-				contactService = _contactService_;
-				$httpBackend.whenGET('http://localhost:3000/contacts').respond(function(){
-					return 	[{
-						"name":"Shotaro Kaneda",
-						"age":16,
-						"occupation":"Futuristic Biker Gang Captain",
-						"email":"kaneda@capsules.co.jp"
-					}]		
-				});
-				
-			})
+		it.only('should make a request to get contacts',function(done){
+			$httpBackend.whenGET(/contacts/).respond({});
+			$httpBackend.expectGET('http://localhost:3000/contacts');
+			$httpBackend.flush();
+			done();
 		})
-		
-		it.only('should be that each contact has a name',	function(done){
+
+		it('should be that each contact has a name',	function(done){
+			
+				
 				contactService.getContacts()
 				.then(function(contacts){
 					contacts.forEach(function(contact){
 						expect(contact).to.have.property('name');
 						expect(contact.name).to.be.a('string');
 					});
+
 					done();
-				});
+				});			
+			
 		});
 		
 		it('ought to be that each contact has a numeric age property',
