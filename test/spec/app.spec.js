@@ -22,9 +22,13 @@ describe("The Contact List Controller",function(){
 	
 	it('should get a copy of the contact list on startup and store it in $scope',
 		inject(function($rootScope,$controller,contactService){
+		
 			/* Create a new scope that we can assign as the controllers scope. By keeping a reference to it, we can run tests. */
 			var $scope = $rootScope.$new();
+		
+			/* Create a new instance of the controller with the $controller service */
 			var contactListController = $controller("ContactList",{$scope:$scope});
+		
 			var contacts = $scope.contacts;
 			expect(contacts).to.be.an('array');
 			expect(contacts).to.deep.equal(contactService.getContacts());

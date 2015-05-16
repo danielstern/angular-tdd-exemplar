@@ -47,4 +47,10 @@ gulp.task('serve-test',function(){
       }
     }
   });
+	
+	gulp.watch([
+    'app/*.html',
+    'app/scripts/**/*.js',
+    'test/spec/**/*.js'
+  ]).on('change', reload);
 })
