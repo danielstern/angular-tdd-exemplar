@@ -13,6 +13,34 @@ describe("The Contact Service",function(){
 			assert.isArray(contacts);
 		}
 	));
+	
+	describe("The Contacts",function(){
+		
+		beforeEach(function(){
+			module('AddressBook');
+		})
+		
+		it('should be that each contact has a name',
+			inject(function(contactService){
+				var contacts = contactService.getContacts();
+				contacts.forEach(function(contact){
+					expect(contact).to.have.property('name');
+					expect(contact.name).to.be.a('string');
+				})
+			}
+		));
+		
+		it('ought to be that each contact has a numeric age property',
+			inject(function(contactService){
+				var contacts = contactService.getContacts();
+				contacts.forEach(function(contact){
+					expect(contact).to.have.property('age');
+					expect(contact.age).to.be.a('number');
+				})
+			}
+		));
+		
+	})
 });
 
 describe("The Contact List Controller",function(){
@@ -34,6 +62,4 @@ describe("The Contact List Controller",function(){
 			expect(contacts).to.deep.equal(contactService.getContacts());
 		}
 	));
-
-
 })
