@@ -1,10 +1,13 @@
 var express = require('express');
-var app = module.exports.app = exports.app = express();
-
-app.use(require('connect-livereload')());
+var app = express();
+var fs = require("fs");
 
 app.get('/',function(req,res){
-	res.send("HI");
+	var data = JSON.parse(
+		fs.readFileSync('db.json',"utf8")
+	);
+	
+	res.json(data);
 })
 
 app.listen(3000);
