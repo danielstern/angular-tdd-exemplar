@@ -1,6 +1,6 @@
 describe("the contact list",function(){
 	angular.module('contactList.test',['AddressBook']);
-	it('should return an array of contacts'){
+	it('should return an array of contacts',function(){
 		assert.equal(1,2);			
 	})
 })

@@ -33,5 +33,14 @@ gulp.task('serve', function () {
 
 /* serve the output of the test runner (for debugging) */
 gulp.task('serve-test',function(){
-
+	browserSync({
+    notify: false,
+    port: 8080,
+    server: {
+      baseDir: ['test','app'],
+      routes: {
+        '/bower_components': 'bower_components'
+      }
+    }
+  });
 })
