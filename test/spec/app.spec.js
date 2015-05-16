@@ -18,17 +18,31 @@ describe("The Contact Service",function(){
 		
 		beforeEach(function(){
 			module('AddressBook');
+			
+			inject(function(_contactService_,$httpBackend){
+				contactService = _contactService_;
+				$httpBackend.whenGET('http://localhost:3000/contacts').respond(function(){
+					return 	[{
+						"name":"Shotaro Kaneda",
+						"age":16,
+						"occupation":"Futuristic Biker Gang Captain",
+						"email":"kaneda@capsules.co.jp"
+					}]		
+				});
+				
+			})
 		})
 		
-		it('should be that each contact has a name',
-			inject(function(contactService){
-				var contacts = contactService.getContacts();
-				contacts.forEach(function(contact){
-					expect(contact).to.have.property('name');
-					expect(contact.name).to.be.a('string');
-				})
-			}
-		));
+		it.only('should be that each contact has a name',	function(done){
+				contactService.getContacts()
+				.then(function(contacts){
+					contacts.forEach(function(contact){
+						expect(contact).to.have.property('name');
+						expect(contact.name).to.be.a('string');
+					});
+					done();
+				});
+		});
 		
 		it('ought to be that each contact has a numeric age property',
 			inject(function(contactService){

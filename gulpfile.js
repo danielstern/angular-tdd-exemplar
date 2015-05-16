@@ -16,7 +16,7 @@ gulp.task('test', function (done) {
 });
 
 /* serve the app */
-gulp.task('serve', ['test'], function () {
+gulp.task('serve', function () {
   browserSync({
     notify: false,
     port: 8080,

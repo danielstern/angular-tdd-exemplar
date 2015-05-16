@@ -2,18 +2,29 @@ angular.module('AddressBook',[])
 .run(function(){
 
 })
-.service("contactService",function($http){
+.service("contactService",function($http,$q,$interval){
 	var contactUrl = 'http://localhost:3000/contacts';
 	var contacts = undefined;
 	$http.get(contactUrl)
 	.then(function(res){
-		console.log('got contacts',res);
-		contacts = res.body;		
+		contacts = res.data;
 	})
 	
 	
 	function getContacts(){
-		return contacts;
+		var deferral = $q.defer();
+		
+		console.log("getting contacts...");
+
+		var watch = $interval(function(){
+			if (contacts){
+				$interval(watch);
+				deferral.resolve(contacts);
+//				console.log("got contacts...",contacts);
+			}
+		});
+		
+		return deferral.promise;
 	};
 	
 	return {
@@ -21,5 +32,8 @@ angular.module('AddressBook',[])
 	}
 })
 .controller("ContactList",function($scope,contactService){
-	$scope.contacts = contactService.getContacts();
+	contactService.getContacts().then(function(contacts){
+		console.log("list got contacts...",contacts);
+		$scope.contacts = contacts;
+	})
 })

@@ -7,7 +7,8 @@ app.get('/contacts',function(req,res){
 		fs.readFileSync('db.json',"utf8")
 	);
 	
-	res.json(data);
+	res.header('Access-Control-Allow-Origin', '*');
+	res.json(data.contacts);
 })
 
 app.listen(3000);
