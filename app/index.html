@@ -6,7 +6,17 @@
 	<div ng-controller="ContactList">
 		<h2>Contacts</h2>
 		<div class=contact ng-repeat="contact in contacts">
-			 ( a contact )
+			 <h4>
+				 {{contact.name}}
+			 </h4>
+			 <p>
+				 {{contact.occupation}}
+			 </p>
+			 <p>
+			 		<a href="mailto:{{contact.email}}">
+						{{contact.email}}
+			 		</a>
+			 </p>
 		</div>
 	</div>
 	
