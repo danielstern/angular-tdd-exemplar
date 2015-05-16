@@ -4,9 +4,7 @@ var reload = browserSync.reload;
 var karma = require('karma').server;
 
 /* build our app to the dist folder */
-gulp.task('default',function(){
-	console.log("King to B6.");
-});
+gulp.task('default',['serve']);
 
 /* run all tests */
 gulp.task('test', function (done) {
@@ -17,7 +15,7 @@ gulp.task('test', function (done) {
 });
 
 /* serve the app */
-gulp.task('serve', function () {
+gulp.task('serve', ['test'], function () {
   browserSync({
     notify: false,
     port: 8080,
