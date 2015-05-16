@@ -30,7 +30,9 @@ gulp.task('serve', ['test'], function () {
   gulp.watch([
     'app/*.html',
     'app/scripts/**/*.js',
-  ]).on('change', reload);
+		'test/spec/**/*.js'
+  ],['test'])
+	.on('change', reload);
 });
 
 /* serve the output of the test runner (for debugging) */
