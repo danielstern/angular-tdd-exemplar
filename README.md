@@ -42,6 +42,11 @@ MVC Framework.
 Use: Build single-page apps or augment static apps
 Compare to: Ember, React 
 
+### angular-mocks
+A library necessary to run tests on your angular app
+Use: Include the script on your page to gain access to `inject` and `module`
+Compare to: N/A
+
 ### Chai
 Assertion framework. Allows assertions to be written in `expect.to.be` form. Adds additional assertions to `assert` library.
 Use: Write assertions in a descriptive way
