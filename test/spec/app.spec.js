@@ -24,34 +24,33 @@ describe("The Contact Service",function(){
 			
 	});
 	
-//	describe("The Contacts",function(){	
-//		beforeEach(function(){
-//				contacts = undefined;
-//				inject(function($injector){
-//					contactService = $injector.get('contactService');															
-//					contactService.getContacts()
-//					.then(function(_contacts){
-//							contacts = _contacts;
-//					})
-////					$httpBackend.flush();
-//				})
-//		})
-//		
-//		it('should have a name that is a string',	function(){
-//				contacts.forEach(function(contact){
-//					expect(contact).to.have.property('name');
-//					expect(contact.name).to.be.a('string');
-//				});
-//			
-//		});					
-//				
-//		it('should have a numeric age property',function(){
-//			contacts.forEach(function(contact){
-//				expect(contact).to.have.property('age');
-//				expect(contact.age).to.be.a('number');
-//			})
-//		});
-//	})
+	describe("The Contacts",function(){	
+		beforeEach(function(){
+				inject(function($injector){
+					contactService = $injector.get('contactService');															
+				})
+		})
+		
+		it('should have a name that is a string',	function(){
+			contactService.getContacts()
+			.then(function(contacts){
+				contacts.forEach(function(contact){
+					expect(contact).to.have.property('name');
+					expect(contact.name).to.be.a('string');
+				});
+			});
+		});					
+				
+		it('should have a numeric age property',function(){
+			contactService.getContacts()
+			.then(function(contacts){
+				contacts.forEach(function(contact){
+					expect(contact).to.have.property('age');
+					expect(contact.age).to.be.a('number');
+				})
+			})
+		});
+	})
 });
 
 describe("The Contact List Controller",function(){
