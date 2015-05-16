@@ -2,23 +2,15 @@ angular.module('AddressBook',[])
 .run(function(){
 
 })
-.service("contactService",function(){
-	var contacts = [{
-		name:"Shotaro Kaneda",
-		age:16,
-		occupation:"Futuristic Biker Gang Captain",
-		email:"kaneda@capsules.co.jp"
-	},{
-		name:"Jon Snow",
-		age:15,
-		occupation:"Lord Commander of the Wall",
-		email:"jon@nightswatch.wl"
-	},{
-		name:"Lara Croft",
-		age:21,
-		occupation:"Tomb Raider",
-		email:"lara@croft.co.uk"
-	}];
+.service("contactService",function($http){
+	var contactUrl = 'http://localhost:3000/contacts';
+	var contacts = undefined;
+	$http.get(contactUrl)
+	.then(function(res){
+		console.log('got contacts',res);
+		contacts = res.body;		
+	})
+	
 	
 	function getContacts(){
 		return contacts;
