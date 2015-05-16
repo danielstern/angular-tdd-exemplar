@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var karma = require('karma').server;
+var liveServer = require('gulp-live-server');
 
 /* build our app to the dist folder */
 gulp.task('default',['serve']);
@@ -26,12 +27,15 @@ gulp.task('serve', ['test'], function () {
       }
     }
   });
+	
+	var server = new liveServer('server.js');
+	server.start();
 
   gulp.watch([
     'app/*.html',
     'app/scripts/**/*.js',
 		'test/spec/**/*.js'
-  ],['test'])
+  ],['test',server.start])
 	.on('change', reload);
 });
 
