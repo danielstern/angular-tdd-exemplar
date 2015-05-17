@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var guid = require("guid");
+var Validation = require('./app/scripts/Validation.js');
 
 var contacts = JSON.parse(
 	fs.readFileSync('db.json',"utf8")

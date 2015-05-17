@@ -38,3 +38,7 @@ function Validation(){
 		isValidEmail:isValidEmail,
 	}
 }
+
+/* To run both on front end and back end. */
+module = module || {};
+module.exports = Validation;
