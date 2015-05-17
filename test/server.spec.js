@@ -8,6 +8,7 @@ var chai = require('chai');
 var expect = chai.expect;
 
 describe("The Server",function(){
+	
 	describe("The contacts route",function(){
 		it("should return a 200 when requesting contacts",function(done){
 			request(server)
@@ -24,36 +25,18 @@ describe("The Server",function(){
 				});
 		});
 		
-		describe("Each contact",function(){	
-			
-			it('should have a name that is a string',	function(done){
-				request(server)
-				.get('/contacts')
-				.end(function(req,res){
-					var contacts = res.body;
-					contacts.forEach(function(contact){
-						expect(contact).to.have.property('name');
-						expect(contact.name).to.be.a('string');
-					});
-					done();
-				})			
-			});					
-
-//		it('should have a numeric age property',function(done){
-//			contactService.getContacts()
-//			.then(function(contacts){
-//				contacts.forEach(function(contact){
-//					expect(contact).to.have.property('age');
-//					expect(contact.age).to.be.a('number');
-//					done();
-//				});
-//			});
-//			setTimeout($httpBackend.flush);
-//		});
-	})
-
-	})
-});
+		describe("Adding contacts",function(){	
+			it("should return 403 if the contact is not valid");			
+			it("should return some other kind of error if there is already a contact with the same name");			
+			it("should add the contact to the database if it is valid");			
+		});
+		
+		describe("deleting contacts",function(){	
+			it('should return 404 if there is no such contact.');
+			it("delete the contact from the database if its valid");			
+		});
+	});					
+})
 
 
 setTimeout(function(){
