@@ -13,15 +13,15 @@ describe("The Address Book App",function(){
 				$httpBackend = $injector.get('$httpBackend');
 				$httpBackend.expectGET('http://localhost:3000/contacts');
 				
-				/* Using live data from the server is more thorough but tends to be slow, unreliable and complicated.
-						It might make sense to test server code only on end to end tests.*/
+				/* Using live data from the server is more thorough but tends to be slow, unreliable and complicated.*/
 				
 //				$.getJSON('http://localhost:3000/contacts')
 //				.then(function(body,code,res){
 //					$httpBackend.whenGET('http://localhost:3000/contacts').respond(res.status,body);
 //					done();
 //				})
-				
+
+				/* Mocking data is fast and efficient, but can leave you blind to errors in your real server interactions */
 				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[{
 					"name":"Jon Snow",
 					"age":15,
@@ -49,38 +49,6 @@ describe("The Address Book App",function(){
 			});
 			setTimeout($httpBackend.flush);
 		});
-
-//		describe("The Contacts",function(){	
-//			beforeEach(function(){
-//					inject(function($injector){
-//						contactService = $injector.get('contactService');															
-//					})
-//			})
-//
-//			it('should have a name that is a string',	function(done){
-//				contactService.getContacts()
-//				.then(function(contacts){
-//					contacts.forEach(function(contact){
-//						expect(contact).to.have.property('name');
-//						expect(contact.name).to.be.a('string');
-//						done();
-//					});
-//				});
-//				setTimeout($httpBackend.flush);
-//			});					
-//
-//			it('should have a numeric age property',function(done){
-//				contactService.getContacts()
-//				.then(function(contacts){
-//					contacts.forEach(function(contact){
-//						expect(contact).to.have.property('age');
-//						expect(contact.age).to.be.a('number');
-//						done();
-//					});
-//				});
-//				setTimeout($httpBackend.flush);
-//			});
-//		})
 	});
 
 	describe("The validation service",function(){
