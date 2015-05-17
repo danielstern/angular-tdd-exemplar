@@ -6,24 +6,20 @@ var liveServer = require('gulp-live-server');
 var mocha = require('gulp-mocha');
 
 
-
 gulp.task('test-server', function(){
-	/* start the server for the tests */
 
 	/* run server tests */
 	return gulp.src('test/server.spec.js',{read:false})
 		.pipe(mocha({reporter:'spec'}))
 	
-	
 });
 
 gulp.task('test-browser',function(done){
 	/* run browser tests with karma */
-  karma.start({
+  return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true,
 		reporters:['mocha'],
-		output:'full'
   }, done);
 });
 
@@ -31,7 +27,7 @@ gulp.task('test-browser',function(done){
 gulp.task('test', ['test-server','test-browser']);
 
 /* serve the app */
-gulp.task('serve', function () {
+gulp.task('serve', ['test'], function () {
 	
 	var server = new liveServer('server.js');
 	server.start();
@@ -78,4 +74,4 @@ gulp.task('serve-test',function(){
 });
 
 /* Serve our app for development purposes. */
-gulp.task('default',['serve']);
+gulp.task('default',['test','serve']);
