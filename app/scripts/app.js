@@ -18,8 +18,16 @@ angular.module('AddressBook',[])
 		getContacts:getContacts
 	}
 })
+
 .controller("ContactList",function($scope,contactService){
 	contactService.getContacts().then(function(contacts){
 		$scope.contacts = contacts;
 	})
+})
+
+.controller("AddContact",function($scope,contactService){
+	$scope.addContact = function(){
+		console.log("Add new contact...",$scope.contact);
+		
+	}
 })
