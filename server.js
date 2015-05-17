@@ -22,6 +22,17 @@ app.get('/contacts',function(req,res,next){
 	next();
 });
 
+app.get('/contacts/:name',function(req,res,next){
+	var contact = getContact(req.params.name);
+	if (contact){
+		res.status(200);
+	} else {
+		res.status(404);
+	}
+	res.json(contact);
+	next();
+});
+
 app.use(bodyParser.json());
 
 app.post('/contacts/new',function(req,res,next){

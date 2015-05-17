@@ -56,6 +56,30 @@ describe("The Server",function(){
 			it('should return 404 if there is no such contact.');
 			it("delete the contact from the database if its valid");			
 		});
+		
+		describe("getting a single contact",function(){
+			it("should return a contact if a valid name is provided",function(done){
+				request(server)
+				.get('/contacts/Jon Snow')
+				.expect(200)
+				.end(function(req,res){
+					expect(res.body).to.deep.equal({
+						"name":"Jon Snow",
+						"age":15,
+						"occupation":"Lord Commander of the Wall",
+						"email":"jon@nightswatch.wl"
+					});
+					done();
+				});
+			});
+			
+			it("should return a 404 status if there is no such contact",function(done){
+				request(server)
+				.get('/contacts/Robb Stark')
+				.expect(404)
+				.end(done);
+			})
+		})
 	});					
 })
 
