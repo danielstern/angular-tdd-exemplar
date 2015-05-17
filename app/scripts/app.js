@@ -8,15 +8,21 @@ angular.module('AddressBook',[])
 		
 		$http.get(contactUrl)
 		.then(function(res){
+			contacts = res.data;
 			deferral.resolve(res.data);
 		})
 		
 		return deferral.promise;
 	};
 	
+	function addContact(contact){
+		contacts.push(contact);
+	}
+	
 	
 	return {
-		getContacts:getContacts	
+		getContacts:getContacts,
+		addContact:addContact
 	}
 })
 
@@ -72,9 +78,10 @@ angular.module('AddressBook',[])
 .controller("AddContact",function($scope,contactService,validationService){
 	$scope.addContact = function(){
 		if (!validationService.isValidContact($scope.contact)){
+			$scope.errorMessage = true;
 			return false;
 		};
 		
-		
+		contactService.addContact($scope.contact);		
 	}
 })
