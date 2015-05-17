@@ -138,7 +138,29 @@ describe("The Address Book App",function(){
 				assert.ok(validationService.isValidName('Roose Bolton'));
 				assert.ok(validationService.isValidName('Robert Baratheon, King of The Andals'));
 			});
-		})
+		});
+		
+		describe("the age validator",function(){
+			it ("should return true on any number 18 or greater",function(){
+				assert(validationService.isValidAge(18));
+				assert(validationService.isValidAge(23));
+				assert(validationService.isValidAge(66.5));
+				assert(validationService.isValidAge(9000));
+			});
+			
+			it("should return false if the age is not a number",function(){
+				assert.isFalse(validationService.isValidAge("Grey Wind"));
+				assert.isFalse(validationService.isValidAge("Blinky"));
+				assert.isFalse(validationService.isValidAge("23"));
+			});
+			
+			it("should return false if the age is less than 18",function(){
+				expect(validationService.isValidAge(17)).not.to.be.ok;
+				expect(validationService.isValidAge(5)).not.to.be.ok;
+				expect(validationService.isValidAge(-4)).not.to.be.ok;
+				expect(validationService.isValidAge(0)).not.to.be.ok;
+			});
+		});
 	})
 
 	describe("The Contact List Controller",function(){

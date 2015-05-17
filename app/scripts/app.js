@@ -55,7 +55,9 @@ angular.module('AddressBook',[])
 	
 	return {
 		isValidName:isValidName,
-		isValidContact:isValidContact
+		isValidContact:isValidContact,
+		isValidAge:isValidAge,
+		isValidEmail:isValidEmail,
 	}
 })
 
@@ -69,9 +71,10 @@ angular.module('AddressBook',[])
 
 .controller("AddContact",function($scope,contactService,validationService){
 	$scope.addContact = function(){
-		console.log("Add new contact...",$scope.contact);
 		if (!validationService.isValidContact($scope.contact)){
 			return false;
-		}
+		};
+		
+		
 	}
 })
