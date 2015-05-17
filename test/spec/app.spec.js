@@ -39,37 +39,37 @@ describe("The Address Book App",function(){
 			setTimeout($httpBackend.flush);
 		});
 
-		describe("The Contacts",function(){	
-			beforeEach(function(){
-					inject(function($injector){
-						contactService = $injector.get('contactService');															
-					})
-			})
-
-			it('should have a name that is a string',	function(done){
-				contactService.getContacts()
-				.then(function(contacts){
-					contacts.forEach(function(contact){
-						expect(contact).to.have.property('name');
-						expect(contact.name).to.be.a('string');
-						done();
-					});
-				});
-				setTimeout($httpBackend.flush);
-			});					
-
-			it('should have a numeric age property',function(done){
-				contactService.getContacts()
-				.then(function(contacts){
-					contacts.forEach(function(contact){
-						expect(contact).to.have.property('age');
-						expect(contact.age).to.be.a('number');
-						done();
-					});
-				});
-				setTimeout($httpBackend.flush);
-			});
-		})
+//		describe("The Contacts",function(){	
+//			beforeEach(function(){
+//					inject(function($injector){
+//						contactService = $injector.get('contactService');															
+//					})
+//			})
+//
+//			it('should have a name that is a string',	function(done){
+//				contactService.getContacts()
+//				.then(function(contacts){
+//					contacts.forEach(function(contact){
+//						expect(contact).to.have.property('name');
+//						expect(contact.name).to.be.a('string');
+//						done();
+//					});
+//				});
+//				setTimeout($httpBackend.flush);
+//			});					
+//
+//			it('should have a numeric age property',function(done){
+//				contactService.getContacts()
+//				.then(function(contacts){
+//					contacts.forEach(function(contact){
+//						expect(contact).to.have.property('age');
+//						expect(contact.age).to.be.a('number');
+//						done();
+//					});
+//				});
+//				setTimeout($httpBackend.flush);
+//			});
+//		})
 	});
 
 	describe("The validation service",function(){
@@ -160,6 +160,18 @@ describe("The Address Book App",function(){
 				expect(validationService.isValidAge(-4)).not.to.be.ok;
 				expect(validationService.isValidAge(0)).not.to.be.ok;
 			});
+		});
+		
+		describe("the email validator",function(){
+			it("should return true on a valid, normal email address",function(){
+				expect(validationService.isValidEmail("info@danielstern.ca")).to.be.true;
+				expect(validationService.isValidEmail("chairperson@board.com")).to.be.ok;
+				expect(validationService.isValidEmail("lester@gov.co.uk")).to.be.ok;
+			});
+			it("should return false on anything that's not an email address",function(){
+				assert.isFalse(validationService.isValidEmail(12578));
+				assert(!validationService.isValidEmail("Hermione Granger"));
+			})
 		});
 	})
 

@@ -46,7 +46,7 @@ angular.module('AddressBook',[])
 	function isValidEmail(email){
 		/* this is a great function to write tests for, since it certainly isn't clear
 		 by reading it if it works correctly. */
-		return /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.exec(email);
+		return 	/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email);
 	};
 	
 	function isValidAge(age){
