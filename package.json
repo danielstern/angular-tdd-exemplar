@@ -16,7 +16,8 @@
     "gulp": "^3.8.11",
     "gulp-karma": "0.0.4",
     "gulp-mocha": "^2.0.1",
-    "karma": "^0.12.31"
+    "karma": "^0.12.31",
+    "supertest": "^1.0.1"
   },
   "dependencies": {
     "gulp-express": "^0.3.5",
