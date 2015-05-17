@@ -14,7 +14,7 @@ describe("The Contact Service",function(){
 				$httpBackend.expectGET('http://localhost:3000/contacts');
 					
 		})
-	})
+	});
 	
 	it('should return an array of contacts asynchronously',function(){
 			contactService.getContacts()
@@ -22,6 +22,19 @@ describe("The Contact Service",function(){
 				expect('contacts').to.be.an('array');
 			});
 			
+	});
+	
+	describe("the validation helper",function(){
+		it("should return false on a contact with no name",function(){
+			var contact_with_no_name = {
+				age:36,
+				occupation:"Janitor",
+				email:"janitor@test.com"
+			};
+			expect(contactService.isValidContact(contact_with_no_name)).to.be.false;
+		});
+		it("should return false on a contact with no age");
+		it("should return false on a contact with no occupation");
 	});
 	
 	describe("The Contacts",function(){	
@@ -61,14 +74,15 @@ describe("The Contact List Controller",function(){
 			$scope = $rootScope.$new();
 	
 			/* Create a new instance of the controller with the $controller service */
-			contactListController = $controller("ContactList",{$scope:$scope});
+			contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});
 			
 		})
 	});
 	
-	it('should get a copy of the contact list on startup and store it in $scope',function(){
-		setTimeout(function(){
-			expect($scope.contacts).to.be.an('array');
-		},50);
-	});
+//	it('should get a copy of the contact list on startup and store it in $scope',function(done){
+//		setTimeout(function(){
+//			expect($scope.contacts).to.be.an('array');
+//			done();
+//		},200);
+//	});
 })

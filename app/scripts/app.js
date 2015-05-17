@@ -14,7 +14,7 @@ angular.module('AddressBook',[])
 		return deferral.promise;
 	};
 	
-	function isValidContact(){
+	function isValidContact(contact){
 		var valid = true;
 		
 		if (!contact.name) valid = false;
