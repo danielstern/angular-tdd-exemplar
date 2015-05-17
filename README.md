@@ -28,14 +28,14 @@ Use: Karma can be used to run your tests in browsers. If your tests are simple J
 Compare To: N/A
 
 ### Gulp
-> 
 Use: Automate tasks.
 Environment: Command Line / JavaScript
 Compare to: Grunt, Broccoli
 
 ### gulp-karma
->
 Use: Simplify automation of running Karma in Gulp
+Environment: `require` this library in a gulpfile
+Compare to: gulp-jasmine
 
 ### angular
 MVC Framework.
@@ -48,7 +48,7 @@ Use: Include the script on your page to gain access to `inject` and `module`
 Compare to: N/A
 
 ### protractor
-A library for running end-to-end tests on angular apps.
+A library for running end-to-end tests on angular apps. protractor uses selenium/webdriver, which are two big words.
 Use: Test high level functionality like database interaction and navigation
 
 ### Chai
