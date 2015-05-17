@@ -3,7 +3,7 @@ var expect = chai.expect;
 
 describe("The Address Book App",function(){
 	
-	beforeEach(function(){
+	beforeEach(function(done){
 
 			module('AddressBook');
 			module('ngMock');
@@ -11,14 +11,14 @@ describe("The Address Book App",function(){
 			inject(function(_contactService_,$injector){
 				contactService = _contactService_;
 				$httpBackend = $injector.get('$httpBackend');
-				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[{
-					"name":"Jon Snow",
-					"age":15,
-					"occupation":"Lord Commander of the Wall",
-					"email":"jon@nightswatch.wl"
-				}]);
 				$httpBackend.expectGET('http://localhost:3000/contacts');
-
+				
+				$.getJSON('http://localhost:3000/contacts')
+				.then(function(body,code,res){
+					$httpBackend.whenGET('http://localhost:3000/contacts').respond(res.status,body);
+					done();
+				})
+				
 		})
 	});
 
