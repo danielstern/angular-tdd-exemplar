@@ -1,5 +1,9 @@
 var request = require('supertest');
-var server = require('../server.js');
+var app = require('../server.js');
+
+var server = app.server;
+var listener = app.listener;
+
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -22,3 +26,8 @@ describe("The Server",function(){
 		});
 	})
 });
+
+setTimeout(function(){
+	listener.close();
+	server.stop();
+},1200)

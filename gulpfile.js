@@ -7,21 +7,14 @@ var mocha = require('gulp-mocha');
 
 
 
-gulp.task('test-server', function(done){
+gulp.task('test-server', function(){
 	/* start the server for the tests */
 
 	/* run server tests */
-	gulp.src('test/server.spec.js',{read:false})
+	return gulp.src('test/server.spec.js',{read:false})
 		.pipe(mocha({reporter:'spec'}))
-		.once('error',complete)
-		.once('end',complete);
 	
-	/* stop the server */
-	function complete(){
-		done();
-//		server.stop();
-		process.exit();
-	}
+	
 });
 
 gulp.task('test-browser',function(done){

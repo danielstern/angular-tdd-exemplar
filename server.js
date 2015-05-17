@@ -20,6 +20,7 @@ app.post('/contacts/new',function(req,res){
 //	res.json(contacts);
 })
 
-app.listen(3000);
+var port = app.listen(3000);
 
-module.exports = app;
+module.exports.server = app;
+module.exports.listener = port;
