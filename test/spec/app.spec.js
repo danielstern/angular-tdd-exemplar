@@ -1,5 +1,11 @@
 var assert = chai.assert;
 var expect = chai.expect;
+var sample_valid_contact = {
+	"name":"Jon Snow",
+	"age":15,
+	"occupation":"Lord Commander of the Wall",
+	"email":"jon@nightswatch.wl"
+}
 
 describe("The Address Book App",function(){
 	
@@ -14,12 +20,7 @@ describe("The Address Book App",function(){
 				$httpBackend.expectGET('http://localhost:3000/contacts');
 				
 				/* Mocking data is fast and efficient, but can leave you blind to errors in your real server interactions */
-				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[{
-					"name":"Jon Snow",
-					"age":15,
-					"occupation":"Lord Commander of the Wall",
-					"email":"jon@nightswatch.wl"
-				}]);
+				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[sample_valid_contact]);
 				done();
 				
 		})
@@ -30,17 +31,32 @@ describe("The Address Book App",function(){
 		beforeEach(function(){
 				inject(function($injector){
 					contactService = $injector.get("contactService");
+					$httpBackend = $injector.get('$httpBackend');
 				})
+				
+				
 		});
-
-		it('should return an array of contacts asynchronously',function(done){
-			contactService.getContacts()
-			.then(function(contacts){
-				expect(contacts).to.be.an('array');
-				done();
+		
+		describe('getting contacts',function(){
+			it('should return an array of contacts asynchronously',function(done){
+				contactService.getContacts()
+				.then(function(contacts){
+					expect(contacts).to.be.an('array');
+					done();
+				});
+				setTimeout($httpBackend.flush);
 			});
-			setTimeout($httpBackend.flush);
 		});
+		
+		describe('adding contacts',function(done){
+			it ("shoud return false if the contact is not valid.");
+			it ("should add a new contact if it is valid",function(){
+				$httpBackend.expectPOST(/contacts\/new/)
+				contactService.addContact(sample_valid_contact)
+					.then(done);
+				setTimeout($httpBackend.flush,10);
+			});		
+		})
 	});
 	
 

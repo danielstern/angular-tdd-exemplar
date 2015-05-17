@@ -1,14 +1,16 @@
 angular.module('AddressBook',[])
 .service("contactService",function($http,$q, validationService){
 	var contactUrl = 'http://localhost:3000/contacts';
-	var contacts = undefined;	
+	var contacts = [];	
 	
 	function getContacts(){
 		var deferral = $q.defer();
 		
 		$http.get(contactUrl)
 		.then(function(res){
-			contacts = res.data;		
+			while(res.data[0]){
+				contacts.push(res.data.pop());
+			};
 			deferral.resolve(res.data);
 		})
 		
@@ -17,14 +19,15 @@ angular.module('AddressBook',[])
 	
 	function addContact(contact){
 		var i = contacts.push(contact);
-		$http.post(contactUrl+'/new',contact)
-		.then(function success(res){
+		var request = $http.post(contactUrl+'/new',contact);
+		request.then(function success(res){
 				
-			},
-			function fail(){
-				contacts.splice(i-1,1);
-				alert("Sorry, we couldn't add your contact.");
-			})
+		},
+		function fail(){
+			contacts.splice(i-1,1);
+			alert("Sorry, we couldn't add your contact.");
+		});
+		return request;
 	}
 	
 	return {
