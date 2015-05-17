@@ -16,10 +16,16 @@ angular.module('AddressBook',[])
 	};
 	
 	function addContact(contact){
-		contacts.push(contact);
-		$http.post(contactUrl+'/new',contact);;
+		var i = contacts.push(contact);
+		$http.post(contactUrl+'/new',contact)
+		.then(function success(res){
+				
+			},
+			function fail(){
+				contacts.splice(i-1,1);
+				alert("Sorry, we couldn't add your contact.");
+			})
 	}
-	
 	
 	return {
 		getContacts:getContacts,
@@ -46,6 +52,7 @@ angular.module('AddressBook',[])
 			return false;
 		};
 		
-		contactService.addContact($scope.contact);		
+		contactService.addContact(angular.copy($scope.contact));		
+		$scope.contact = {};
 	}
 })
