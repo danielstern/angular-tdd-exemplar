@@ -96,9 +96,26 @@ describe("The Contact Service",function(){
 });
 
 describe("The validation service",function(){
+	beforeEach(function(){
+		module("AddressBook");
+		inject(function(_validationService_){
+			validationService = _validationService_;
+		})
+	})
 	describe("the name validator",function(){
-		it("should only accept strings.");
-		it("should only accept names at least two letters long.");
+		it("should return false if the name is not a string.",function(){
+			assert.notOk(validationService.validateName(0x0dedde))
+			assert.notOk(validationService.validateName({}))
+			assert.notOk(validationService.validateName([]))
+		});
+		it("should return false on names of less than two letters",function(){
+			assert.isFalse(validationService.validateName('N'));
+		});
+		it("should return true on a string of two or more characters",function(){
+			assert.ok(validationService.validateName('Eddard'));
+			assert.ok(validationService.validateName('Roose Bolton'));
+			assert.ok(validationService.validateName('Robert Baratheon, King of The Andals'));
+		});
 	})
 })
 
