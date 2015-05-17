@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.7.1",
+    "chai": "^2.3.0",
     "connect-livereload": "^0.5.3",
     "express": "^4.12.3",
     "guid": "0.0.12",
@@ -23,6 +24,7 @@
     "gulp-express": "^0.3.5",
     "gulp-live-server": "0.0.14",
     "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.2",
     "mocha": "^2.2.5"
   }
 }

@@ -9,19 +9,18 @@ var mocha = require('gulp-mocha');
 
 gulp.task('test-server', function(done){
 	/* start the server for the tests */
-	var server = new liveServer('server.js');
-	server.start();
 
 	/* run server tests */
 	gulp.src('test/server.spec.js',{read:false})
-	.pipe(mocha({reporter:'nyan'}))
-	.once('error',complete)
-	.once('end',complete);
+		.pipe(mocha({reporter:'spec'}))
+		.once('error',complete)
+		.once('end',complete);
 	
 	/* stop the server */
 	function complete(){
 		done();
-		server.stop();
+//		server.stop();
+		process.exit();
 	}
 });
 
@@ -29,7 +28,9 @@ gulp.task('test-browser',function(done){
 	/* run browser tests with karma */
   karma.start({
     configFile: __dirname + '/karma.conf.js',
-    singleRun: true
+    singleRun: true,
+		reporters:['mocha'],
+		output:'full'
   }, done);
 });
 
