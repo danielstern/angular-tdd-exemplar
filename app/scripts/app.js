@@ -40,7 +40,9 @@ angular.module('AddressBook',[])
 })
 
 .controller("ContactList",function($scope,contactService){
+	console.log("contactl ist init.");
 	contactService.getContacts().then(function(contacts){
+		console.log("got contacts.");
 		$scope.contacts = contacts;
 	})
 })

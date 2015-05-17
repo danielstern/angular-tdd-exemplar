@@ -19,7 +19,7 @@ describe("The Contact Service",function(){
 	it('should return an array of contacts asynchronously',function(){
 			contactService.getContacts()
 			.then(function(contacts){
-				expect('contacts').to.be.an('array');
+				expect(contacts).to.be.an('array');
 			});
 	});
 	
@@ -73,22 +73,24 @@ describe("The Contact Service",function(){
 				})
 		})
 		
-		it('should have a name that is a string',	function(){
+		it('should have a name that is a string',	function(done){
 			contactService.getContacts()
 			.then(function(contacts){
 				contacts.forEach(function(contact){
 					expect(contact).to.have.property('name');
 					expect(contact.name).to.be.a('string');
+					done();
 				});
 			});
 		});					
 				
-		it('should have a numeric age property',function(){
+		it('should have a numeric age property',function(done){
 			contactService.getContacts()
 			.then(function(contacts){
 				contacts.forEach(function(contact){
 					expect(contact).to.have.property('age');
 					expect(contact.age).to.be.a('number');
+					done();
 				})
 			})
 		});
@@ -108,9 +110,11 @@ describe("The validation service",function(){
 			assert.notOk(validationService.validateName({}))
 			assert.notOk(validationService.validateName([]))
 		});
+		
 		it("should return false on names of less than two letters",function(){
 			assert.isFalse(validationService.validateName('N'));
 		});
+		
 		it("should return true on a string of two or more characters",function(){
 			assert.ok(validationService.validateName('Eddard'));
 			assert.ok(validationService.validateName('Roose Bolton'));
@@ -121,21 +125,33 @@ describe("The validation service",function(){
 
 describe("The Contact List Controller",function(){
 	beforeEach(function(){
-		module('AddressBook');	
-		inject(function($rootScope,$controller,contactService){
+		
+		module('AddressBook');
+		module('ngMockE2E');
+		
+		inject(function($rootScope,$injector){
 			/* Create a new scope that we can assign as the controllers scope. By keeping a reference to it, we can run tests. */
 			$scope = $rootScope.$new();
-	
-			/* Create a new instance of the controller with the $controller service */
-			contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});
 			
+			contactService = $injector.get("contactService");
+			$httpBackend = $injector.get('$httpBackend');
+			$controller = $injector.get("$controller");			
+			
+			$httpBackend.whenGET('http://localhost:3000/contacts').passThrough();
+			$httpBackend.expectGET('http://localhost:3000/contacts');
 		})
 	});
 	
-//	it('should get a copy of the contact list on startup and store it in $scope',function(done){
-//		setTimeout(function(){
-//			expect($scope.contacts).to.be.an('array');
-//			done();
-//		},200);
-//	});
+	it('should get a copy of the contact list on startup and store it in $scope',function(done){
+		/* Create a new instance of the controller with the $controller service */
+//		contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});		
+		contactService.getContacts()
+			.then(function(contacts){
+				expect(contacts).to.be.an('array');
+				expect($scope.contacts).to.be.an('array');
+				done();
+			});
+		
+//		$httpBackend.flush();
+	});
 })
