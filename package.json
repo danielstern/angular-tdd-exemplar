@@ -12,6 +12,7 @@
     "browser-sync": "^2.7.1",
     "connect-livereload": "^0.5.3",
     "express": "^4.12.3",
+    "guid": "0.0.12",
     "gulp": "^3.8.11",
     "gulp-karma": "0.0.4",
     "karma": "^0.12.31"

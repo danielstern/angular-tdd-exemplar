@@ -13,11 +13,22 @@ describe("The Address Book App",function(){
 				$httpBackend = $injector.get('$httpBackend');
 				$httpBackend.expectGET('http://localhost:3000/contacts');
 				
-				$.getJSON('http://localhost:3000/contacts')
-				.then(function(body,code,res){
-					$httpBackend.whenGET('http://localhost:3000/contacts').respond(res.status,body);
-					done();
-				})
+				/* Using live data from the server is more thorough but tends to be slow, unreliable and complicated.
+						It might make sense to test server code only on end to end tests.*/
+				
+//				$.getJSON('http://localhost:3000/contacts')
+//				.then(function(body,code,res){
+//					$httpBackend.whenGET('http://localhost:3000/contacts').respond(res.status,body);
+//					done();
+//				})
+				
+				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[{
+					"name":"Jon Snow",
+					"age":15,
+					"occupation":"Lord Commander of the Wall",
+					"email":"jon@nightswatch.wl"
+				}]);
+				done();
 				
 		})
 	});

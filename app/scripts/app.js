@@ -8,7 +8,7 @@ angular.module('AddressBook',[])
 		
 		$http.get(contactUrl)
 		.then(function(res){
-			contacts = res.data;
+			contacts = res.data;		
 			deferral.resolve(res.data);
 		})
 		
@@ -17,6 +17,7 @@ angular.module('AddressBook',[])
 	
 	function addContact(contact){
 		contacts.push(contact);
+		$http.post(contactUrl+'/new',contact);;
 	}
 	
 	
