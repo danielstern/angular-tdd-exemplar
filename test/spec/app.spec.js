@@ -13,14 +13,6 @@ describe("The Address Book App",function(){
 				$httpBackend = $injector.get('$httpBackend');
 				$httpBackend.expectGET('http://localhost:3000/contacts');
 				
-				/* Using live data from the server is more thorough but tends to be slow, unreliable and complicated.*/
-				
-//				$.getJSON('http://localhost:3000/contacts')
-//				.then(function(body,code,res){
-//					$httpBackend.whenGET('http://localhost:3000/contacts').respond(res.status,body);
-//					done();
-//				})
-
 				/* Mocking data is fast and efficient, but can leave you blind to errors in your real server interactions */
 				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[{
 					"name":"Jon Snow",
@@ -50,7 +42,6 @@ describe("The Address Book App",function(){
 			setTimeout($httpBackend.flush);
 		});
 	});
-
 	
 
 	describe("The Contact List Controller",function(){
