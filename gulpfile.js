@@ -3,20 +3,45 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var karma = require('karma').server;
 var liveServer = require('gulp-live-server');
+var mocha = require('gulp-mocha');
 
-/* build our app to the dist folder */
-gulp.task('default',['serve']);
 
-/* run all tests */
-gulp.task('test', function (done) {
+
+gulp.task('test-server', function(done){
+	/* start the server for the tests */
+	var server = new liveServer('server.js');
+	server.start();
+
+	/* run server tests */
+	gulp.src('test/server.spec.js',{read:false})
+	.pipe(mocha({reporter:'nyan'}))
+	.once('error',complete)
+	.once('end',complete);
+	
+	/* stop the server */
+	function complete(){
+		done();
+		server.stop();
+	}
+});
+
+gulp.task('test-browser',function(done){
+	/* run browser tests with karma */
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done);
 });
 
+/* test ALL THE THINGS */
+gulp.task('test', ['test-server','test-browser']);
+
 /* serve the app */
 gulp.task('serve', function () {
+	
+	var server = new liveServer('server.js');
+	server.start();
+	
   browserSync({
     notify: false,
     port: 8080,
@@ -27,9 +52,6 @@ gulp.task('serve', function () {
       }
     }
   });
-	
-	var server = new liveServer('server.js');
-	server.start();
 
   gulp.watch([
     'app/*.html',
@@ -40,8 +62,9 @@ gulp.task('serve', function () {
 	.on('change', reload);
 });
 
-/* serve the output of the test runner (for debugging) */
+/* Run the browser tests inside of Chrome. */
 gulp.task('serve-test',function(){
+	
 	browserSync({
     notify: false,
     port: 8080,
@@ -58,4 +81,7 @@ gulp.task('serve-test',function(){
     'app/scripts/**/*.js',
     'test/spec/**/*.js'
   ]).on('change', reload);
-})
+});
+
+/* Serve our app for development purposes. */
+gulp.task('default',['serve']);
