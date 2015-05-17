@@ -26,17 +26,29 @@ describe("The Server",function(){
 		});
 		
 		describe("Adding contacts",function(){	
-			it("should return 403 if the contact is not valid",function(done){
+			it("should return 400 if the contact is not valid",function(done){
 				request(server)
 					.post('/contacts/new')
 					.send({
 						name:"Gary",
 						email: undefined
 					})
-					.expect(403)
+					.expect(400)
 					.end(done);
 			});			
-			it("should return some other kind of error if there is already a contact with the same name");			
+			it("should return a 409 conflict if there is already a contact with the same name",function(done){
+				request(server)
+					.post('/contacts/new')
+					.send({
+						"name":"Jon Snow",
+						"age":18,
+						"occupation":"Lord Commander of the Wall",
+						"email":"jon@nightswatch.wl"
+					})
+					.expect(409)
+					.end(done);
+			
+			});			
 			it("should add the contact to the database if it is valid");			
 		});
 		

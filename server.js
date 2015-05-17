@@ -11,6 +11,10 @@ var contacts = JSON.parse(
 	fs.readFileSync('db.json',"utf8")
 ).contacts;
 
+function getContact(name){
+	return contacts.filter(function(c){return c.name===name})[0];
+}
+
 app.use(cors());
 
 app.get('/contacts',function(req,res,next){
@@ -19,26 +23,26 @@ app.get('/contacts',function(req,res,next){
 });
 
 app.use(bodyParser.json());
-//app.use(express.json());
 
 app.post('/contacts/new',function(req,res,next){
+	var contact = req.body;
 	
-	res.header('Access-Control-Allow-Methods', '*');
-	res
-		.status(403)
-		.send(req.body);
-	console.log(req.body);
-//	console.log(req.data);
-//	console.log(req.params);
-	next();
-	return;
-//	var contact = req.body;
-//	if (!validation.isValidContact(contact)){
-//		res
-//			.status(403)
-//			.send("This is not a valid contact.",JSON.stringify(req.body));
-//		return;
-//	}
+	if (!validation.isValidContact(contact)){
+		res.status(400)
+			.send("This is not a valid contact.");
+		next();
+		return;
+	};
+	
+	if (getContact(contact.name)){
+		res.status(409)
+			.send("Contact already exists.");
+		next();
+		return;
+	}
+//	next();
+	
+	res.status(500).send("Oops. A clown fell in the koi pond.");
 //	console.log("added contact.",req.body);
 //	res.header('Access-Control-Allow-Origin', '*');
 //	contacts.push(req.body);
