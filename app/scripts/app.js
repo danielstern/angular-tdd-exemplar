@@ -14,12 +14,20 @@ angular.module('AddressBook',[])
 		return deferral.promise;
 	};
 	
+	
+	return {
+		getContacts:getContacts	
+	}
+})
+
+.service("validationService",function(){
+	
 	function isValidContact(contact){
 		if (!contact) return null;
 		
 		var valid = true;
 		
-		if (!contact.name || !validationService.validateName(contact.name)) valid = false;
+		if (!contact.name || !isValidName(contact.name)) valid = false;
 		if (!contact.email) valid = false;
 //		if (contact.age && !validAge()) valid = false;
 //		if (contact.occupation && !validOccupation()) valid = false;
@@ -27,15 +35,13 @@ angular.module('AddressBook',[])
 		return valid;
 	}
 	
+	function isValidName(name){
+		return typeof name === 'string' && name.length > 1
+	};
+	
 	return {
-		getContacts:getContacts,
-		isValidContact:isValidContact,
-	}
-})
-
-.service("validationService",function(){
-	return {
-		validateName:function(name){return typeof name === 'string' && name.length > 1}
+		isValidName:isValidName,
+		isValidContact:isValidContact
 	}
 })
 
@@ -47,10 +53,10 @@ angular.module('AddressBook',[])
 	})
 })
 
-.controller("AddContact",function($scope,contactService){
+.controller("AddContact",function($scope,contactService,validationService){
 	$scope.addContact = function(){
 		console.log("Add new contact...",$scope.contact);
-		if (!contactService.isValidContact){
+		if (!validationService.isValidContact($scope.contact)){
 			return false;
 		}
 	}

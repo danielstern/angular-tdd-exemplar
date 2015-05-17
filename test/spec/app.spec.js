@@ -39,49 +39,6 @@ describe("The Address Book App",function(){
 			setTimeout($httpBackend.flush);
 		});
 
-		describe("the validation helper",function(){
-
-			it("should return null on no contact at all",function(){
-				expect(contactService.isValidContact(undefined)).to.be.null;
-			});
-
-			it("should return false on a contact with no name",function(){
-				var contact_with_no_name = {
-					age:36,
-					occupation:"Janitor",
-					email:"janitor@planetexpress.com"
-				};
-				expect(contactService.isValidContact(contact_with_no_name)).to.be.false;
-			});
-
-			it("should return false on a contact with no email",function(){
-				var contact_with_no_email = {
-					name:"Scruffy",
-					age:36,
-					occupation:"Janitor",
-				};
-				assert.isFalse(contactService.isValidContact(contact_with_no_email));
-			});
-
-			it("should return true on a contact with no age, it is optional",function(){
-				var contact_with_no_age = {
-					name:"Scruffy",
-					occupation:"Janitor",
-					email:"janitor@planetexpress.com"
-				};
-				expect(contactService.isValidContact(contact_with_no_age)).to.be.true;
-			});
-
-			it("should return true on a contact with no occupation, because that is optional",function(){
-				var contact_with_no_occupation = {
-					name:"Scruffy",
-					age:25,
-					email:"janitor@planetexpress.com"
-				};
-				expect(contactService.isValidContact(contact_with_no_occupation)).to.be.true;
-			});
-		});
-
 		describe("The Contacts",function(){	
 			beforeEach(function(){
 					inject(function($injector){
@@ -121,21 +78,65 @@ describe("The Address Book App",function(){
 				validationService = $injector.get("validationService");
 			})
 		})
+		
+		describe("the contact validation function",function(){
+
+			it("should return null on no contact at all",function(){
+				expect(validationService.isValidContact(undefined)).to.be.null;
+			});
+
+			it("should return false on a contact with no name",function(){
+				var contact_with_no_name = {
+					age:36,
+					occupation:"Janitor",
+					email:"janitor@planetexpress.com"
+				};
+				expect(validationService.isValidContact(contact_with_no_name)).to.be.false;
+			});
+
+			it("should return false on a contact with no email",function(){
+				var contact_with_no_email = {
+					name:"Scruffy",
+					age:36,
+					occupation:"Janitor",
+				};
+				assert.isFalse(validationService.isValidContact(contact_with_no_email));
+			});
+
+			it("should return true on a contact with no age, it is optional",function(){
+				var contact_with_no_age = {
+					name:"Scruffy",
+					occupation:"Janitor",
+					email:"janitor@planetexpress.com"
+				};
+				expect(validationService.isValidContact(contact_with_no_age)).to.be.true;
+			});
+
+			it("should return true on a contact with no occupation, because that is optional",function(){
+				var contact_with_no_occupation = {
+					name:"Scruffy",
+					age:25,
+					email:"janitor@planetexpress.com"
+				};
+				expect(validationService.isValidContact(contact_with_no_occupation)).to.be.true;
+			});
+		});
+		
 		describe("the name validator",function(){
 			it("should return false if the name is not a string.",function(){
-				assert.notOk(validationService.validateName(0x0dedde))
-				assert.notOk(validationService.validateName({}))
-				assert.notOk(validationService.validateName([]))
+				assert.notOk(validationService.isValidName(0x0dedde))
+				assert.notOk(validationService.isValidName({}))
+				assert.notOk(validationService.isValidName([]))
 			});
 
 			it("should return false on names of less than two letters",function(){
-				assert.isFalse(validationService.validateName('N'));
+				assert.isFalse(validationService.isValidName('N'));
 			});
 
 			it("should return true on a string of two or more characters",function(){
-				assert.ok(validationService.validateName('Eddard'));
-				assert.ok(validationService.validateName('Roose Bolton'));
-				assert.ok(validationService.validateName('Robert Baratheon, King of The Andals'));
+				assert.ok(validationService.isValidName('Eddard'));
+				assert.ok(validationService.isValidName('Roose Bolton'));
+				assert.ok(validationService.isValidName('Robert Baratheon, King of The Andals'));
 			});
 		})
 	})
