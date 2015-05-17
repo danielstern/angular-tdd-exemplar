@@ -95,6 +95,13 @@ describe("The Contact Service",function(){
 	})
 });
 
+describe("The validation service",function(){
+	describe("the name validator",function(){
+		it("should only accept strings.");
+		it("should only accept names at least two letters long.");
+	})
+})
+
 describe("The Contact List Controller",function(){
 	beforeEach(function(){
 		module('AddressBook');	

@@ -1,5 +1,5 @@
 angular.module('AddressBook',[])
-.service("contactService",function($http,$q,$interval){
+.service("contactService",function($http,$q, validationService){
 	var contactUrl = 'http://localhost:3000/contacts';
 	var contacts = undefined;	
 	
@@ -19,7 +19,7 @@ angular.module('AddressBook',[])
 		
 		var valid = true;
 		
-		if (!contact.name) valid = false;
+		if (!contact.name || !validationService.validateName(contact.name)) valid = false;
 		if (!contact.email) valid = false;
 //		if (contact.age && !validAge()) valid = false;
 //		if (contact.occupation && !validOccupation()) valid = false;
@@ -30,6 +30,12 @@ angular.module('AddressBook',[])
 	return {
 		getContacts:getContacts,
 		isValidContact:isValidContact,
+	}
+})
+
+.service("validationService",function(){
+	return {
+		validateName:function(name){return typeof name === 'string' && name.length > 1}
 	}
 })
 
