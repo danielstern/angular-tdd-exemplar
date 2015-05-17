@@ -15,12 +15,14 @@ angular.module('AddressBook',[])
 	};
 	
 	function isValidContact(contact){
+		if (!contact) return null;
+		
 		var valid = true;
 		
 		if (!contact.name) valid = false;
 		if (!contact.email) valid = false;
-		if (!contact.age) valid = false;
-		if (!contact.occupation) valid = false;
+//		if (contact.age && !validAge()) valid = false;
+//		if (contact.occupation && !validOccupation()) valid = false;
 		
 		return valid;
 	}

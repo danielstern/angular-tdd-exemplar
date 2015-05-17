@@ -21,20 +21,49 @@ describe("The Contact Service",function(){
 			.then(function(contacts){
 				expect('contacts').to.be.an('array');
 			});
-			
 	});
 	
 	describe("the validation helper",function(){
+		
+		it("should return null on no contact at all",function(){
+			expect(contactService.isValidContact(undefined)).to.be.null;
+		});
+		
 		it("should return false on a contact with no name",function(){
 			var contact_with_no_name = {
 				age:36,
 				occupation:"Janitor",
-				email:"janitor@test.com"
+				email:"janitor@planetexpress.com"
 			};
 			expect(contactService.isValidContact(contact_with_no_name)).to.be.false;
 		});
-		it("should return false on a contact with no age");
-		it("should return false on a contact with no occupation");
+		
+		it("should return false on a contact with no email",function(){
+			var contact_with_no_email = {
+				name:"Scruffy",
+				age:36,
+				occupation:"Janitor",
+			};
+			assert.isFalse(contactService.isValidContact(contact_with_no_email));
+		});
+		
+		it("should return true on a contact with no age, it is optional",function(){
+			var contact_with_no_age = {
+				name:"Scruffy",
+				occupation:"Janitor",
+				email:"janitor@planetexpress.com"
+			};
+			expect(contactService.isValidContact(contact_with_no_age)).to.be.true;
+		});
+		
+		it("should return true on a contact with no occupation, because that is optional",function(){
+			var contact_with_no_occupation = {
+				name:"Scruffy",
+				age:25,
+				email:"janitor@planetexpress.com"
+			};
+			expect(contactService.isValidContact(contact_with_no_occupation)).to.be.true;
+		});
 	});
 	
 	describe("The Contacts",function(){	
