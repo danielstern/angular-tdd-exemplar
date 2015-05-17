@@ -27,16 +27,30 @@ angular.module('AddressBook',[])
 		
 		var valid = true;
 		
-		if (!contact.name || !isValidName(contact.name)) valid = false;
-		if (!contact.email) valid = false;
-//		if (contact.age && !validAge()) valid = false;
-//		if (contact.occupation && !validOccupation()) valid = false;
+		if (!contact.name || contact.name && !isValidName(contact.name)) valid = false;
+		if (!contact.email || contact.email && !isValidEmail(contact.email)) valid = false;
+		if (contact.age && !isValidAge(contact.age)) valid = false;
+		if (contact.occupation && !isValidOccupation(contact.occupation)) valid = false;
 		
 		return valid;
 	}
 	
 	function isValidName(name){
-		return typeof name === 'string' && name.length > 1
+		return typeof name === 'string' && name.length > 1;
+	};
+	
+	function isValidOccupation(occupation){
+		return isValidName(occupation);
+	}
+	
+	function isValidEmail(email){
+		/* this is a great function to write tests for, since it certainly isn't clear
+		 by reading it if it works correctly. */
+		return /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.exec(email);
+	};
+	
+	function isValidAge(age){
+		return typeof age === 'number' && age >= 18;
 	};
 	
 	return {
