@@ -30,7 +30,7 @@ describe("The Server",function(){
 				request(server)
 					.post('/contacts/new')
 					.send({
-						name:"Gary",
+						name:"Greatjon Umber",
 						email: undefined
 					})
 					.expect(400)
@@ -41,15 +41,36 @@ describe("The Server",function(){
 					.post('/contacts/new')
 					.send({
 						"name":"Jon Snow",
-						"age":18,
-						"occupation":"Lord Commander of the Wall",
 						"email":"jon@nightswatch.wl"
 					})
 					.expect(409)
 					.end(done);
 			
 			});			
-			it("should add the contact to the database if it is valid");			
+			
+			it("should add the contact to the database if it is valid",function(done){
+				var newContact = {
+					name:"Roose Bolton",
+					email: "roose@bolt.on",
+					age:61,
+					occupation:"Lord of House Bolton"
+				};
+				
+				request(server)
+					.post('/contacts/new')
+					.send(newContact)
+					.expect(201)
+					.end(function(){
+						request(server)
+							.get('/contacts/' + newContact.name)
+							.expect(200)
+							.end(function(req,res){
+								expect(res.body).to.deep.equal(newContact);
+								done();
+							})
+					});
+				});
+		
 		});
 		
 		describe("deleting contacts",function(){	

@@ -51,14 +51,11 @@ app.post('/contacts/new',function(req,res,next){
 		next();
 		return;
 	}
-//	next();
 	
-	res.status(500).send("Oops. A clown fell in the koi pond.");
-//	console.log("added contact.",req.body);
-//	res.header('Access-Control-Allow-Origin', '*');
-//	contacts.push(req.body);
-//	fs.writeFileSync('db.json',contacts,"utf8")
-//	res.json(contacts);
+	contacts.push(contact);
+	// TODO: save contacts permanently? or not.
+	
+	res.status(201).json(contact);
 })
 
 var port = app.listen(3000);
