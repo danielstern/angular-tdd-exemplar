@@ -14,8 +14,20 @@ angular.module('AddressBook',[])
 		return deferral.promise;
 	};
 	
+	function isValidContact(){
+		var valid = true;
+		
+		if (!contact.name) valid = false;
+		if (!contact.email) valid = false;
+		if (!contact.age) valid = false;
+		if (!contact.occupation) valid = false;
+		
+		return valid;
+	}
+	
 	return {
-		getContacts:getContacts
+		getContacts:getContacts,
+		isValidContact:isValidContact,
 	}
 })
 
@@ -28,6 +40,8 @@ angular.module('AddressBook',[])
 .controller("AddContact",function($scope,contactService){
 	$scope.addContact = function(){
 		console.log("Add new contact...",$scope.contact);
-		
+		if (!contactService.isValidContact){
+			return false;
+		}
 	}
 })
