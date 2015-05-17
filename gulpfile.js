@@ -27,7 +27,7 @@ gulp.task('test-browser',function(done){
 gulp.task('test', ['test-server','test-browser']);
 
 /* serve the app */
-gulp.task('serve', ['test'], function () {
+gulp.task('serve', function () {
 	
 	var server = new liveServer('server.js');
 	server.start();

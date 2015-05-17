@@ -26,14 +26,15 @@ describe("The Server",function(){
 		});
 		
 		describe("Adding contacts",function(){	
-			it("should return 403 if the contact is not valid",function(){
-				debugger;
+			it("should return 403 if the contact is not valid",function(done){
 				request(server)
 					.post('/contacts/new')
-					.data({})
-					.end(function(req,res){
-				
+					.send({
+						name:"Gary",
+						email: undefined
 					})
+					.expect(403)
+					.end(done);
 			});			
 			it("should return some other kind of error if there is already a contact with the same name");			
 			it("should add the contact to the database if it is valid");			

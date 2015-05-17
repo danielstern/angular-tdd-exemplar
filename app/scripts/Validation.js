@@ -40,5 +40,5 @@ function Validation(){
 }
 
 /* To run both on front end and back end. */
-module = module || {};
+var module = module || {};
 module.exports = Validation;
