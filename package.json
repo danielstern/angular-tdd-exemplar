@@ -20,6 +20,7 @@
     "gulp-karma": "0.0.4",
     "gulp-mocha": "^2.0.1",
     "karma": "^0.12.31",
+    "protractor": "^2.0.0",
     "supertest": "^1.0.1"
   },
   "dependencies": {
