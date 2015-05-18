@@ -25,7 +25,6 @@ describe("The Address Book App",function(){
 				
 		})
 	});
-
 	describe("The Contact Service",function(){
 
 		beforeEach(function(){
@@ -33,8 +32,7 @@ describe("The Address Book App",function(){
 					contactService = $injector.get("contactService");
 					$httpBackend = $injector.get('$httpBackend');
 				})
-				
-				
+						
 		});
 		
 		describe('getting contacts',function(){
@@ -80,6 +78,38 @@ describe("The Address Book App",function(){
 		})
 	});
 	
+	describe("The proper filter...",function(){
+		/* how can you possibly test this? */
+		
+		beforeEach(function(){
+			inject(function($injector){
+				proper = $injector.get("$filter")("proper");
+			});
+		})
+		
+		it("should take any string and return that string in proper case (first letter of each word uppercase)",function(){
+			expect(proper('danaerys')).to.equal("Danaerys");
+			expect(proper('sour alyn')).to.equal("Sour Alyn");
+		});
+		
+		it("should coerce a number into a string",function(){
+				expect(proper(5323)).to.equal('5323');
+				expect(proper(1236910)).to.equal('1236910');
+				expect(proper(0x0eabbe)).to.equal('961470'); // no way that is so cool
+		})
+		
+		it("should throw an error on any other value",function(){
+			/* this is how to test for an error */;
+			assert.throws(function(){ 	proper(undefined);  })
+			assert.throws(function(){ 	proper({});  })
+			assert.throws(function(){ 	proper([]);  })
+		})
+	});
+	describe("The Avatar directive...",function(){
+
+		it("should display a single letter which is the first letter of the contact's name.");
+		it("should display a question mark if there is no associated contact.");
+	})
 
 	describe("The Contact List Controller",function(){
 		beforeEach(function(){
