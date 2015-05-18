@@ -11,22 +11,15 @@ describe("The Contact List Controller:",function(){
 		})
 	});
 
-	it('Should get a copy of the contact list on startup and store it in $scope.',function(done){
+	it('Should get a copy of the contact list on startup and store it in $scope.',function(){
 		/* Create a new instance of the controller with the $controller service */
 
 		$httpBackend.expectGET('http://localhost:3000/contacts')
 			.respond(200,[sample_valid_contact]);
-		$httpBackend.expectGET('http://localhost:3000/contacts')
-			.respond(200,[sample_valid_contact]);
 
 		contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});		
-		contactService.getContacts()
-			.then(function(contacts){
-				expect($scope.contacts).to.be.an('array');
-				expect($scope.contacts).to.deep.equal(contacts);
-				done();
-			});
-
 		$httpBackend.flush();
+		expect($scope.contacts).to.be.an('array');
+
 	});
 })
