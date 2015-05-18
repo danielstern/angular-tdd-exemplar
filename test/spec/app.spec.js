@@ -106,7 +106,7 @@ describe("The Address Book App",function(){
 		})
 	});
 	describe("The Avatar directive...",function(){
-		it("should display a single letter which is the first letter of the contact's name.",function(){
+		it("... should display a single letter which is the first letter of the contact's name.",function(){
 			inject(function($rootScope,$compile){
 				$rootScope.contact = {name:"Jon Arryn"};
 				var element = $compile('<avatar name=contact.name/>')($rootScope)
@@ -114,7 +114,7 @@ describe("The Address Book App",function(){
 				expect(element.text()).to.equal("J");
 			})
 		});
-		it("should display a question mark if there is no associated contact.",function(){
+		it("...should display a question mark if there is no associated contact.",function(){
 			inject(function($rootScope,$compile){
 				var element = $compile('<avatar name=contact.name/>')($rootScope)
 				$rootScope.$digest();
@@ -123,7 +123,7 @@ describe("The Address Book App",function(){
 		});
 	})
 
-	describe("The Contact List Controller",function(){
+	describe("The Contact List Controller:",function(){
 		beforeEach(function(){
 
 			inject(function($rootScope,$injector){
@@ -134,7 +134,7 @@ describe("The Address Book App",function(){
 			})
 		});
 
-		it('should get a copy of the contact list on startup and store it in $scope',function(done){
+		it('Should get a copy of the contact list on startup and store it in $scope.',function(done){
 			/* Create a new instance of the controller with the $controller service */
 			contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});		
 			contactService.getContacts()
