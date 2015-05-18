@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var karma = require('karma').server;
 var liveServer = require('gulp-live-server');
@@ -34,7 +34,7 @@ gulp.task('serve', function () {
 	var server = new liveServer('server.js');
 	server.start();
 	
-  browserSync({
+  browserSync.init({
     notify: false,
     port: 8080,
     server: {
@@ -57,11 +57,11 @@ gulp.task('serve', function () {
 /* Run the browser tests inside of Chrome. */
 gulp.task('serve-test',function(){
 	
-	browserSync({
+	browserSync.init({
     notify: false,
-    port: 8080,
+    port: 8090,
     server: {
-      baseDir: ['test','app'],
+      baseDir: ['app'],
       routes: {
         '/bower_components': 'bower_components'
       }
@@ -73,6 +73,24 @@ gulp.task('serve-test',function(){
     'app/scripts/**/*.js',
     'test/spec/**/*.js'
   ]).on('change', reload);
+});
+
+
+gulp.task('coverage',['test-browser'],function(){
+	
+	browserSync.init({
+    notify: false,
+    port: 7777,
+    server: {
+      baseDir: ['test/coverage'],
+    }
+  });
+	
+	gulp.watch([
+    'app/*.html',
+    'app/scripts/**/*.js',
+    'test/spec/**/*.js'
+  ],['test-browser']).on('change', reload);
 });
 
 /* Serve our app for development purposes. */

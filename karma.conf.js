@@ -19,11 +19,11 @@ module.exports = function(config) {
 		coverageReporter: {
 			includeAllSources:true,
 			reporters:[{
-				type: 'text',
-			},{
 				type: 'html',
 				dir: 'test/coverage',
 				subdir:'.'
+			},{
+				type: 'text',
 			}]
 		}
   });
