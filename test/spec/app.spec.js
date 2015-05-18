@@ -17,7 +17,7 @@ describe("The Address Book App",function(){
 			inject(function(_contactService_,$injector){
 				contactService = _contactService_;
 				$httpBackend = $injector.get('$httpBackend');
-				$httpBackend.expectGET('http://localhost:3000/contacts');
+				
 				
 				/* Mocking data is fast and efficient, but can leave you blind to errors in your real server interactions */
 				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[sample_valid_contact]);
@@ -39,31 +39,44 @@ describe("The Address Book App",function(){
 		
 		describe('getting contacts',function(){
 			it('should return an array of contacts asynchronously',function(done){
+				$httpBackend.expectGET('http://localhost:3000/contacts');
+				
 				contactService.getContacts()
 				.then(function(contacts){
 					expect(contacts).to.be.an('array');
 					done();
 				});
-				setTimeout($httpBackend.flush);
+				$httpBackend.flush();
 			});
 		});
 		
-		describe('adding contacts',function(done){
-			it ("shoud return false if the contact is not valid.",function(){
-				var invalid_contact = {name:"Ramsay"};
-				$httpBackend.expectPOST(/contacts\/new/)
+		describe('adding contacts',function(){			
+			
+			it ("should add a new contact if it is valid",function(done){
+				$httpBackend.expectPOST('http://localhost:3000/contacts/new')
+					.respond(201,{});
+				
 				contactService.addContact(sample_valid_contact)
-					.then(function(response){
-						expect(response).to.be.false;
+					.then(function(){
+						done();
 					});
-				setTimeout($httpBackend.flush,10);
-			});
-			it ("should add a new contact if it is valid",function(){
-				$httpBackend.expectPOST(/contacts\/new/)
-				contactService.addContact(sample_valid_contact)
-					.then(done);
-				setTimeout($httpBackend.flush,10);
+					$httpBackend.flush();
 			});		
+			
+			it ("shoud return an err if the method didn't work",function(done){
+				var invalid_contact = {name:"Ramsay"};
+				$httpBackend.expectPOST('http://localhost:3000/contacts/new')
+					.respond(409,"Error");
+				
+				contactService.addContact(invalid_contact)
+					.then(function(){
+						throw new Error();
+					},
+					function(response){
+						done();
+					});
+				$httpBackend.flush();
+			});
 		})
 	});
 	
@@ -74,7 +87,6 @@ describe("The Address Book App",function(){
 			inject(function($rootScope,$injector){
 				/* Create a new scope that we can assign as the controllers scope. By keeping a reference to it, we can run tests. */
 				$scope = $rootScope.$new();
-
 				contactService = $injector.get("contactService");
 				$controller = $injector.get("$controller");			
 			})
@@ -90,7 +102,7 @@ describe("The Address Book App",function(){
 					done();
 				});
 
-			setTimeout($httpBackend.flush);
+			setTimeout($httpBackend.flush,10);
 		});
 	})
 })
