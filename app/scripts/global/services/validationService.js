@@ -1,4 +1,5 @@
-function Validation(){
+angular.module('AddressBook.Global')
+.service("validationService",function(){
 	
 	function isValidContact(contact){
 		if (!contact) return null;
@@ -37,8 +38,4 @@ function Validation(){
 		isValidAge:isValidAge,
 		isValidEmail:isValidEmail,
 	}
-}
-
-/* To run both on front end and back end. */
-var module = module || {};
-module.exports = Validation;
+});

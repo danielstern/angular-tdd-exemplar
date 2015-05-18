@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-var Validation = require('./app/scripts/Validation.js');
-var validation = new Validation();
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
@@ -36,7 +34,7 @@ app.get('/contacts/:name',function(req,res,next){
 app.post('/contacts/new',function(req,res,next){
 	var contact = req.body;
 	
-	if (!validation.isValidContact(contact)){
+	if (typeof contact !== 'object'){
 		res.status(400)
 			.send("This is not a valid contact.");
 		next();
