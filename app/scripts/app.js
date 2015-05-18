@@ -8,9 +8,7 @@ angular.module('AddressBook',[])
 		
 		$http.get(contactUrl)
 		.then(function(res){
-			while(res.data[0]){
-				contacts.push(res.data.pop());
-			};
+			contacts = res.data;
 			deferral.resolve(contacts);
 		})
 		
@@ -25,7 +23,6 @@ angular.module('AddressBook',[])
 		},
 		function fail(){
 			contacts.splice(i-1,1);
-			alert("Sorry, we couldn't add your contact.");
 		});
 		return request;
 	}
@@ -46,8 +43,10 @@ angular.module('AddressBook',[])
 
 .controller("AddContact",function($scope,contactService,validationService){
 	$scope.contact = {
-		name:"Ali",
-		email:"Ali@baba.com"
+		name:"Bronn",
+		email:"bronn@anonymo.us",
+		occupation:"Sellsword",
+		age:39		
 	}
 	$scope.addContact = function(){
 		if (!validationService.isValidContact($scope.contact)){
@@ -55,7 +54,11 @@ angular.module('AddressBook',[])
 			return false;
 		};
 		
-		contactService.addContact(angular.copy($scope.contact));		
-		$scope.contact = {};
+		contactService.addContact(angular.copy($scope.contact))
+		.then(function(){
+			$scope.contact = {};
+		},function(){
+			alert("Sorry, we couldn't add your contact.");
+		})
 	}
 })
