@@ -6,14 +6,16 @@
 	<div ng-controller="ContactList">
 		<h2>Contacts</h2>
 		<div class=contact ng-repeat="contact in contacts">
-			 <h4>
-				 {{contact.name | proper}}
-			 	 <avatar name=contact.name></avatar>
-			 </h4>
-			 <p>
-				 {{contact.occupation}}
-			 </p>
-			 <p>
+			<h4>
+				<span class=contact-name>
+			 			{{contact.name | proper}}
+			 	</span>
+			 	<avatar name=contact.name></avatar>
+			</h4>
+			<p>
+				{{contact.occupation}}
+			</p>
+			<p>
 			 		<a href="mailto:{{contact.email}}">
 						{{contact.email}}
 			 		</a>
