@@ -51,6 +51,14 @@ angular.module('AddressBook',[])
 	}
 })
 
+.filter("proper",function(){
+	return function(name){
+		return name.split(" ").map(function(word){
+			return word[0].toUpperCase().concat(word.slice(1))
+		}).join(" ");
+	}
+})
+
 .controller("AddContact",function($scope,contactService,validationService){
 	$scope.contact = {
 		name:"Bronn",
