@@ -1,20 +1,24 @@
-describe('angularjs homepage', function() {
-  it('should greet the named user', function() {
-    // Load the AngularJS homepage.
-    browser.get('http://www.angularjs.org');
+describe('adding a contact', function() {
+  it('should add the appropriate contact', function(done) {
 
-    // Find the element with ng-model matching 'yourName' - this will
-    // find the <input type="text" ng-model="yourName"/> element - and then
-    // type 'Julie' into it.
-    element(by.model('yourName')).sendKeys('Julie');
+		browser.get('http://localhost:8080');
 
-    // Find the element with binding matching 'yourName' - this will
-    // find the <h1>Hello {{yourName}}!</h1> element.
-    var greeting = element(by.binding('yourName'));
+    element(by.model('contact.name')).sendKeys('Davos');
+		browser.sleep(3000);
+    element(by.model('contact.email')).sendKeys('davos@onionknig.ht');
+		element(by.id('submitNewContact')).click();
+		
+		
+//		browser.sleep(3,function(){
+			/* handy!*/
 
-    // Assert that the text element has the expected value.
-    // Protractor patches 'expect' to understand promises.
+//    		expect(newest.getText()).toEqual('Hello Julie!');
+//		});
+		
+		var contacts = element.all(by.repeater('contact in contacts'));
+		var newest = contacts[contacts.length-1];
 
-    expect(greeting.getText()).toEqual('Hello Julie!');
+
+		
   });
 });

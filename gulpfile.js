@@ -5,10 +5,6 @@ var karma = require('karma').server;
 var liveServer = require('gulp-live-server');
 var mocha = require('gulp-mocha');
 var protractor = require("gulp-protractor").protractor;
-var webdriver_standalone = require("gulp-protractor").webdriver;
-
-
-gulp.task('webdriver', webdriver_standalone);
 
 gulp.task('test-server', function(){
 
@@ -18,18 +14,7 @@ gulp.task('test-server', function(){
 	
 });
 
-//gulp.task('protractor',function(){
-gulp.task('protractor',['webdriver'],function(){
-	setTimeout(function(){
-	gulp.src(["./src/tests/*.js"])
-	.pipe(protractor({
-			configFile: "test/protractor.config.js",
-		  seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
-			args: ['--baseUrl', 'http://127.0.0.1:8000']
-	}))
-	.on('error', function(e) { throw e })
-	},1000);
-})
+
 gulp.task('test-browser',function(done){
 	/* run browser tests with karma */
   return karma.start({
@@ -91,9 +76,7 @@ gulp.task('serve-test',function(){
   ]).on('change', reload);
 });
 
-
 gulp.task('coverage',['test-browser'],function(){
-	
 	browserSync.init({
     notify: false,
     port: 7777,
@@ -108,6 +91,19 @@ gulp.task('coverage',['test-browser'],function(){
     'test/spec/**/*.js'
   ],['test-browser']).on('change', reload);
 });
+
+gulp.task('protractor',['serve'],function(){
+	setTimeout(function(){
+	gulp.src(["./src/tests/*.js"])
+	.pipe(protractor({
+			configFile: "test/protractor.config.js",
+			args: ['--baseUrl', 'http://127.0.0.1:8000']
+	}))
+	.on('error', function(e) { throw e })
+	},1000);
+});
+
+
 
 /* Serve our app for development purposes. */
 gulp.task('default',['test','serve']);

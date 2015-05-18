@@ -1,11 +1,5 @@
 angular.module('AddressBook.Contacts')
 .controller("AddContact",function($scope,contactService,validationService){
-	$scope.contact = {
-		name:"Bronn",
-		email:"bronn@anonymo.us",
-		occupation:"Sellsword",
-		age:39		
-	}
 	$scope.addContact = function(){
 		if (!validationService.isValidContact($scope.contact)){
 			$scope.errorMessage = true;
