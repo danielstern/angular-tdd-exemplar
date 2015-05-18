@@ -1,6 +1,7 @@
 module.exports = function(config) {
   config.set({
     browsers: ['PhantomJS'],
+		/* brings in describe keyword*/
     frameworks: ['mocha'],
     files: [
 			'bower_components/angular/angular.js',
@@ -10,11 +11,13 @@ module.exports = function(config) {
       '/**/*.js',
       'app/**/module.js',
       'app/**/*.js',
-      'test/spec/*.js'
+      'test/spec/**/*.js'
     ],
-		reporters:['spec'],
 		preprocessors: {
-			'app/scripts/**/*.js*':['coverage']
+			'app/**/*.js*':['coverage']
+		},
+		coverageReporter: {
+			type: 'text'
 		}
   });
 };

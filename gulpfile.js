@@ -19,8 +19,10 @@ gulp.task('test-browser',function(done){
   return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true,
-		reporters:['mocha'],
-  }, done);
+		reporters:['mocha','coverage'],
+  }, function(){
+		done();
+	});
 });
 
 /* test ALL THE THINGS */
