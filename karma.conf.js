@@ -17,7 +17,13 @@ module.exports = function(config) {
 			'app/**/*.js*':['coverage']
 		},
 		coverageReporter: {
-			type: 'text'
+			includeAllSources:true,
+			reporters:[{
+				type: 'text',
+			},{
+				type: 'html',
+				dir: 'test/coverage'
+			}]
 		}
   });
 };
