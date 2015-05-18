@@ -40,6 +40,17 @@ angular.module('AddressBook',[])
 	})
 })
 
+/* todo, test this directive */
+.directive("avatar",function(){
+	return {
+		restrict:"AE",
+		scope:{
+			name:"=",
+		},
+		template:"<span class=avatar style='border:1px solid purple'>{{name[0]}}</span>"
+	}
+})
+
 .controller("AddContact",function($scope,contactService,validationService){
 	$scope.contact = {
 		name:"Bronn",

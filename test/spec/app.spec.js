@@ -102,7 +102,7 @@ describe("The Address Book App",function(){
 					done();
 				});
 
-			setTimeout($httpBackend.flush,10);
+			$httpBackend.flush();
 		});
 	})
 })
