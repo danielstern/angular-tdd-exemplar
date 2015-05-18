@@ -106,27 +106,21 @@ describe("The Address Book App",function(){
 		})
 	});
 	describe("The Avatar directive...",function(){
-		beforeEach(function(){
-			
-		})
 		it("should display a single letter which is the first letter of the contact's name.",function(){
 			inject(function($rootScope,$compile){
-				scope = $rootScope;
-				scope.contact = {name:"Jon Arryn"};
-				var element = $compile('<avatar name=contact.name/>')(scope)
-				scope.$digest();
+				$rootScope.contact = {name:"Jon Arryn"};
+				var element = $compile('<avatar name=contact.name/>')($rootScope)
+				$rootScope.$digest();
 				expect(element.text()).to.equal("J");
-				
-				
-//				var avatar = angular.element('<avatar name=contact.name/>');
-//				var g = $compile(avatar,scope);
-//				scope.$digest();
-//				content = avatar.find('span');
-				
-//				debugger;	
 			})
 		});
-		it("should display a question mark if there is no associated contact.");
+		it("should display a question mark if there is no associated contact.",function(){
+			inject(function($rootScope,$compile){
+				var element = $compile('<avatar name=contact.name/>')($rootScope)
+				$rootScope.$digest();
+				expect(element.text()).to.equal("?");
+			});
+		});
 	})
 
 	describe("The Contact List Controller",function(){
