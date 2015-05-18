@@ -12,18 +12,16 @@ describe("The Address Book App",function(){
 	beforeEach(function(done){
 
 			module('AddressBook');
-			module('ngMock');
 
 			inject(function(_contactService_,$injector){
 				contactService = _contactService_;
 				$httpBackend = $injector.get('$httpBackend');
 				
-				
 				/* Mocking data is fast and efficient, but can leave you blind to errors in your real server interactions */
-				$httpBackend.whenGET('http://localhost:3000/contacts').respond(200,[sample_valid_contact]);
+			
 				done();
 				
-		})
+			})
 	});
 	describe("The Contact Service",function(){
 
@@ -37,7 +35,8 @@ describe("The Address Book App",function(){
 		
 		describe('getting contacts',function(){
 			it('should return an array of contacts asynchronously',function(done){
-				$httpBackend.expectGET('http://localhost:3000/contacts');
+				$httpBackend.expectGET('http://localhost:3000/contacts')
+					.respond(200,[sample_valid_contact]);
 				
 				contactService.getContacts()
 				.then(function(contacts){
@@ -51,6 +50,7 @@ describe("The Address Book App",function(){
 		describe('adding contacts',function(){			
 			
 			it ("should add a new contact if it is valid",function(done){
+				
 				$httpBackend.expectPOST('http://localhost:3000/contacts/new')
 					.respond(201,{});
 				
@@ -136,6 +136,12 @@ describe("The Address Book App",function(){
 
 		it('Should get a copy of the contact list on startup and store it in $scope.',function(done){
 			/* Create a new instance of the controller with the $controller service */
+			
+			$httpBackend.expectGET('http://localhost:3000/contacts')
+				.respond(200,[sample_valid_contact]);
+			$httpBackend.expectGET('http://localhost:3000/contacts')
+				.respond(200,[sample_valid_contact]);
+			
 			contactListController = $controller("ContactList",{$scope:$scope,contactService:contactService});		
 			contactService.getContacts()
 				.then(function(contacts){
