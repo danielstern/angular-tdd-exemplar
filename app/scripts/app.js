@@ -11,7 +11,7 @@ angular.module('AddressBook',[])
 			while(res.data[0]){
 				contacts.push(res.data.pop());
 			};
-			deferral.resolve(res.data);
+			deferral.resolve(contacts);
 		})
 		
 		return deferral.promise;

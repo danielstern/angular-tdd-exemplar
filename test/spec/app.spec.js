@@ -49,7 +49,15 @@ describe("The Address Book App",function(){
 		});
 		
 		describe('adding contacts',function(done){
-			it ("shoud return false if the contact is not valid.");
+			it ("shoud return false if the contact is not valid.",function(){
+				var invalid_contact = {name:"Ramsay"};
+				$httpBackend.expectPOST(/contacts\/new/)
+				contactService.addContact(sample_valid_contact)
+					.then(function(response){
+						expect(response).to.be.false;
+					});
+				setTimeout($httpBackend.flush,10);
+			});
 			it ("should add a new contact if it is valid",function(){
 				$httpBackend.expectPOST(/contacts\/new/)
 				contactService.addContact(sample_valid_contact)
