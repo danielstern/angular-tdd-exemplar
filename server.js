@@ -34,7 +34,7 @@ app.get('/contacts/:name',function(req,res,next){
 app.post('/contacts/new',function(req,res,next){
 	var contact = req.body;
 	
-	if (typeof contact !== 'object'){
+	if (!contact.name){
 		res.status(400)
 			.send("This is not a valid contact.");
 		next();

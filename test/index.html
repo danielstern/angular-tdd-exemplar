@@ -20,7 +20,16 @@
 		<!-- Angular-mocks is a script we include only in the test index.html, creates such functions as inject -->
 		<script src='bower_components/angular-mocks/angular-mocks.js'></script>
 		
-		<script src='scripts/Validation.js'></script>
+		<script src='scripts/global/module.js'></script>
+		<script src='scripts/global/services/validationService.js'></script>
+		<script src='scripts/global/filters/proper.js'></script>
+
+		<script src='scripts/contacts/module.js'></script>
+		<script src='scripts/contacts/controllers/AddContact.js'></script>
+		<script src='scripts/contacts/controllers/ContactList.js'></script>
+		<script src='scripts/contacts/directives/avatar.js'></script>
+		<script src='scripts/contacts/services/contactService.js'></script>
+
 		<script src='scripts/app.js'></script>
 
     <!-- include spec files here... -->

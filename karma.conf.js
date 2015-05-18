@@ -8,6 +8,7 @@ module.exports = function(config) {
 			'bower_components/chai/chai.js',
 			'bower_components/jquery/dist/jquery.js',
       '/**/*.js',
+      'app/**/module.js',
       'app/**/*.js',
       'test/spec/*.js'
     ]

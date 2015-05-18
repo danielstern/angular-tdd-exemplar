@@ -29,10 +29,7 @@ describe("The Server",function(){
 			it("should return 400 if the contact is not valid",function(done){
 				request(server)
 					.post('/contacts/new')
-					.send({
-						name:"Greatjon Umber",
-						email: undefined
-					})
+					.send()
 					.expect(400)
 					.end(done);
 			});			
