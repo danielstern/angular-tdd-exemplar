@@ -22,7 +22,8 @@ module.exports = function(config) {
 				type: 'text',
 			},{
 				type: 'html',
-				dir: 'test/coverage'
+				dir: 'test/coverage',
+				subdir:'.'
 			}]
 		}
   });
