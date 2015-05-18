@@ -73,11 +73,6 @@ describe("The Server",function(){
 		
 		});
 		
-		describe("deleting contacts",function(){	
-			it('should return 404 if there is no such contact.');
-			it("delete the contact from the database if its valid");			
-		});
-		
 		describe("getting a single contact",function(){
 			it("should return a contact if a valid name is provided",function(done){
 				request(server)

@@ -37,6 +37,16 @@ Use: Simplify automation of running Karma in Gulp
 Environment: `require` this library in a gulpfile
 Compare to: gulp-jasmine
 
+### Supertest
+A framework specifically for running tests on servers created by Express or similar APIs.
+Use: Require supertest in your test script and have it run tests on your Server script
+Compare to: Request.js
+
+### Istanbul
+A tool for measuring how much of your code has tests covering it.
+Use: 
+Compare to: N/A
+
 ### angular
 MVC Framework.
 Use: Build single-page apps or augment static apps

@@ -18,12 +18,11 @@ angular.module('AddressBook',[])
 	function addContact(contact){
 		var i = contacts.push(contact);
 		var request = $http.post(contactUrl+'/new',contact);
-		request.then(function success(res){
-				
-		},
-		function fail(){
-			contacts.splice(i-1,1);
-		});
+		request.then(
+			function success(res){},
+			function fail(){
+				contacts.splice(i-1,1);
+			});
 		return request;
 	}
 	

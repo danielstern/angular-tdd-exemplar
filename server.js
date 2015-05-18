@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-var guid = require("guid");
 var Validation = require('./app/scripts/Validation.js');
 var validation = new Validation();
 var bodyParser = require('body-parser');
@@ -16,6 +15,7 @@ function getContact(name){
 }
 
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/contacts',function(req,res,next){
 	res.json(contacts);
@@ -32,8 +32,6 @@ app.get('/contacts/:name',function(req,res,next){
 	res.json(contact);
 	next();
 });
-
-app.use(bodyParser.json());
 
 app.post('/contacts/new',function(req,res,next){
 	var contact = req.body;
@@ -53,12 +51,13 @@ app.post('/contacts/new',function(req,res,next){
 	}
 	
 	contacts.push(contact);
-	// TODO: save contacts permanently? or not.
-	
 	res.status(201).json(contact);
 })
 
-var port = app.listen(3000);
+var listener = app.listen(3000);
 
+/* Export the server for testing with Supertest. */
 module.exports.server = app;
-module.exports.listener = port;
+
+/* Export the listener so that it can be closed by a file importing this file. */
+module.exports.listener = listener;
