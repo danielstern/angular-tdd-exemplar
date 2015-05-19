@@ -98,7 +98,8 @@ gulp.task('protractor',['serve'],function(done){
 			configFile: "test/protractor.config.js",
 			args: ['--baseUrl', 'http://127.0.0.1:8000']
 	}))
-	.on('error', function(e) { throw e });
+	.on('error', function(e) { throw e })
+	.on('end',process.exit);
 });
 
 
