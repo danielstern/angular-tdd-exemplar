@@ -4,14 +4,21 @@ html {
 
 body {
 	margin: 64px;
+	background-color: #666;
 }
 
 h1 {
-	font-size: 50px
+	font-size: 50px;
+	margin-bottom: 0px;
+}
+
+h1,h2 {
+	color: #f3f3f3;
 }
 
 .inline-module {
-	height:600px;
+	background-color: #f9f9f9;
+	min-height:520px;
 	width:300px;
 	float: left;
 	margin: 10px 20px;
@@ -24,10 +31,16 @@ h1 {
 	margin-left:0px;
 }
 
+input {
+	padding: 3px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ccc;
+}
+
 
 label {
 	display: block;
-	margin: 10px 0px;
+	margin: 20px 0px;
 }
 
 input {
@@ -41,3 +54,10 @@ avatar span {
 	border-bottom: 2px solid #999;
 }
 
+.warning {
+	border: 1px solid #aaa;
+	border-bottom: 2px solid #ccc;
+	padding: 12px;
+	text-align: center;
+	background-color: #ffeeee;
+}

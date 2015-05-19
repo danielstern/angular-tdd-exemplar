@@ -51,7 +51,7 @@ gulp.task('serve',['test-server'], function () {
     'app/scripts/**/*.js',
 		'test/spec/**/*.js',
 		'server.js'
-  ],['test',server.start])
+  ],['test-browser',server.start])
 	.on('change', reload);
 });
 

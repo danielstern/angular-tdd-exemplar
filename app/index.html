@@ -1,8 +1,9 @@
 <html>
 	<head>
 		<title>
-			Contactical - An Address Book
+			Contactical - An Address Book 
 		</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="styles/main.css">
 	</head>
 	<body ng-app='AddressBook'>
@@ -12,14 +13,14 @@
 				Contactical
 			</h1>
 			<h2>
-				The Ironclad Address Book
+				The Ironclad Address Book 
 			</h2>
 		</div>
 		
 		<div class=app-body>
 
 			<div ng-controller="ContactList" class='contact-list inline-module'>
-				<h2>Contacts</h2>
+				<h3>Contacts</h3>
 				<div class=contact ng-repeat="contact in contacts">
 					<h4>
 						<span class=contact-name>
@@ -57,8 +58,11 @@
 						Email (Req'd)
 						<input type="email" required ng-model="contact.email">
 					</label>
-					<input type=submit id=submitNewContact>Add New Contact
-					<div ng-if=errorMessage>Please check the information and try again.</div>
+					<label for="submit">
+						Add New Contact
+						<input type=submit id=submitNewContact>	
+					</label>
+					<div class=warning ng-if=errorMessage>Please check the information and try again.</div>
 				</form>
 
 			</div>
