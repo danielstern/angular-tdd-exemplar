@@ -92,15 +92,13 @@ gulp.task('coverage',['test-browser'],function(){
   ],['test-browser']).on('change', reload);
 });
 
-gulp.task('protractor',['serve'],function(){
-	setTimeout(function(){
-	gulp.src(["./src/tests/*.js"])
+gulp.task('protractor',['serve'],function(done){
+	return gulp.src(["./src/tests/*.js"])
 	.pipe(protractor({
 			configFile: "test/protractor.config.js",
 			args: ['--baseUrl', 'http://127.0.0.1:8000']
 	}))
-	.on('error', function(e) { throw e })
-	},1000);
+	.on('error', function(e) { throw e });
 });
 
 

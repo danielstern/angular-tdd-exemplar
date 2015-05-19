@@ -5,6 +5,6 @@ angular.module('AddressBook.Contacts')
 		scope:{
 			name:"=",
 		},
-		template:"<span class=avatar style='border:1px solid purple'>{{name[0] || '?'}}</span>"
+		template:"<span class=avatar style='border:1px solid purple'>{{name[0] || '?' | proper}}</span>"
 	}
 })
