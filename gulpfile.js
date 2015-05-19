@@ -30,7 +30,7 @@ gulp.task('test-browser',function(done){
 gulp.task('test', ['test-server','test-browser','protractor']);
 
 /* serve the app */
-gulp.task('serve', function () {
+gulp.task('serve',['test-server'], function () {
 	
 	var server = new liveServer('server.js');
 	server.start();
@@ -55,12 +55,13 @@ gulp.task('serve', function () {
 	.on('change', reload);
 });
 
+gulp.task('test-n-serve',['test-server','serve']);
 /* Run the browser tests inside of Chrome. */
 gulp.task('serve-test',function(){
 	
 	browserSync.init({
     notify: false,
-    port: 8090,
+    port: 8081,
     server: {
       baseDir: ['test','app'],
       routes: {

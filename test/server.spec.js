@@ -92,12 +92,11 @@ describe("The Server",function(){
 				.expect(404)
 				.end(done);
 			})
+		});
+		
+		after(function(){
+			listener.close();	
 		})
 	});					
 })
 
-
-setTimeout(function(){
-	listener.close();
-	server.stop();
-},1200)
