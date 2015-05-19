@@ -1,0 +1,43 @@
+html {
+	font-family: arial; 
+}
+
+body {
+	margin: 64px;
+}
+
+h1 {
+	font-size: 50px
+}
+
+.inline-module {
+	height:600px;
+	width:300px;
+	float: left;
+	margin: 10px 20px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #999;
+	padding: 48px;
+}
+
+.inline-module:nth-child(1) {
+	margin-left:0px;
+}
+
+
+label {
+	display: block;
+	margin: 10px 0px;
+}
+
+input {
+	float: right;
+}
+
+avatar span {
+	padding: 4px 5px;
+	margin: 0px 12px;
+	border: 1px solid #999;
+	border-bottom: 2px solid #999;
+}
+
