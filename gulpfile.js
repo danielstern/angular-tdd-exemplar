@@ -55,8 +55,7 @@ gulp.task('serve',['test-server'], function () {
 	.on('change', reload);
 });
 
-gulp.task('test-n-serve',['test-server','serve']);
-/* Run the browser tests inside of Chrome. */
+
 gulp.task('serve-test',function(){
 	
 	browserSync.init({
@@ -93,7 +92,7 @@ gulp.task('serve-coverage',['test-browser'],function(){
   ],['test-browser']).on('change', reload);
 });
 
-gulp.task('protractor',['serve'],function(done){
+gulp.task('protractor',['test-server','serve'],function(done){
 	return gulp.src(["./src/tests/*.js"])
 	.pipe(protractor({
 			configFile: "test/protractor.config.js",
