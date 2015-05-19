@@ -27,7 +27,7 @@ gulp.task('test-browser',function(done){
 });
 
 /* test ALL THE THINGS */
-gulp.task('test', ['test-server','test-browser']);
+gulp.task('test', ['test-server','test-browser','protractor']);
 
 /* serve the app */
 gulp.task('serve', function () {
@@ -76,7 +76,7 @@ gulp.task('serve-test',function(){
   ]).on('change', reload);
 });
 
-gulp.task('coverage',['test-browser'],function(){
+gulp.task('serve-coverage',['test-browser'],function(){
 	browserSync.init({
     notify: false,
     port: 7777,
@@ -101,7 +101,6 @@ gulp.task('protractor',['serve'],function(done){
 	.on('error', function(e) { throw e })
 	.on('end',process.exit);
 });
-
 
 
 /* Serve our app for development purposes. */
