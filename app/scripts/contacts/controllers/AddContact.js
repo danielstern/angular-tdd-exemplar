@@ -9,6 +9,7 @@ angular.module('AddressBook.Contacts')
 		contactService.addContact(angular.copy($scope.contact))
 		.then(function(){
 			$scope.contact = {};
+			$scope.errorMessage = false;
 		},function(){
 			alert("Sorry, we couldn't add your contact.");
 		})
