@@ -1,14 +1,15 @@
 describe('adding a contact', function() {
 	
-	it('should add a contact and not throw an error',function(){
+	it('should add a contact and not throw an error',function(done){
 		browser.get('http://localhost:8080');
-		element(by.model('contact.name')).sendKeys('Davos Seaworth');
+		element(by.model('contact.name')).sendKeys('davos seaworth');
 		browser.sleep(1000);
 		element(by.model('contact.email')).sendKeys('davos@onionknig.ht');
 		browser.sleep(1000);
 		element(by.id('submitNewContact')).click();	
 		browser.sleep(1000);
 		// to do... assert all is well?
+		done();
 	});
 	
   it('should display the contacts name correctly', function(done) {		
@@ -19,6 +20,7 @@ describe('adding a contact', function() {
 			var name = newest.element(by.tagName('h4'))
 				.element(by.className('contact-name'));
 			expect(name.getText()).toEqual("Davos Seaworth");
+			console.log("name displayed correctly.");
 			done();
 		});
   });
@@ -29,12 +31,14 @@ describe('adding a contact', function() {
 			browser.sleep(200);
 			var newest = contacts[contacts.length-1];
 			var avatar = newest.element(by.tagName('h4'))
-				.element(by.tagName('avatar'));
-			expect(avatar.getText()).toEqual("");
+				.element(by.className('avatar'));
+			expect(avatar.getText()).toEqual("D");
 			
-			done();
 		});
+		done();
   });
 	
-	it("should throw an error if I try to add the same contact again");
+	it("should throw an error if I try to add the same contact again",function(){
+	
+	});
 });
