@@ -1,12 +1,17 @@
-describe("the contact list",function(){
-	beforeEach(function(){
-		module('AddressBook');
-	})
-	
-	it('should return an array of contacts',
-		inject(function(contactService){
+describe("the app",function(){
+	describe('the contact service',function(){
+		beforeEach(function(){
+			
+			module("AddressBook");
+			
+			inject(function($injector){
+				contactService = $injector.get("contactService")
+			})
+		})
+		
+		it("should return an array of contacts",function(){
 			var contacts = contactService.getContacts();
 			assert.isArray(contacts);
-		}
-	));
+		});
+	})
 })
