@@ -18,6 +18,17 @@
   "homepage": "https://github.com/danielstern/angular-tdd-exemplar#readme",
   "dependencies": {
     "browser-sync": "^2.7.6",
-    "gulp": "^3.8.11"
+    "gulp": "^3.8.11",
+    "gulp-karma": "0.0.4",
+    "karma": "^0.12.35",
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.2.5"
+  },
+  "devDependencies": {
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17"
   }
 }
