@@ -18,8 +18,10 @@
   "homepage": "https://github.com/danielstern/angular-tdd-exemplar#readme",
   "dependencies": {
     "browser-sync": "^2.7.6",
+    "express": "^4.12.4",
     "gulp": "^3.8.11",
     "gulp-karma": "0.0.4",
+    "gulp-live-server": "0.0.17",
     "karma": "^0.12.35",
     "karma-mocha": "^0.1.10",
     "mocha": "^2.2.5"
