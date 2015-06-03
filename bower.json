@@ -16,6 +16,7 @@
   "dependencies": {
     "angular": "~1.4.0",
     "mocha": "~2.2.5",
-    "chai": "~2.3.0"
+    "chai": "~2.3.0",
+    "angular-mocks": "~1.4.0"
   }
 }
