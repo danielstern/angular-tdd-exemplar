@@ -38,4 +38,28 @@ describe("The Address Book App",function(){
 			assert.isArray($scope.contacts);
 		})
 	})
+
+	describe("the proper filter",function(){
+		beforeEach(function(){
+			module("AddressBook");
+			inject(function($injector){
+				proper = $injector.get("$filter")("proper");
+			});
+		})
+
+		it ("should proper case a string",function(){
+			expect(proper("ned stark")).to.equal("Ned Stark");
+			expect(proper("cersei lannister")).to.equal("Cersei Lannister");
+		});
+
+		it ("should take a number and return that as a string",function(){
+			expect(proper(42)).to.equal("42");
+		})
+
+		it ("should throw an error on an incompatible type",function(){
+			assert.throws(function(){
+				proper(undefined)
+			});
+		})
+	})
 })
