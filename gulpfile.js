@@ -27,7 +27,8 @@ gulp.task('serve',['server'],function(){
 gulp.task('test-browser',function(done){
 	karma.start({
 		configFile: __dirname + '/karma.conf.js',
-		singleRun: true
+		singleRun: true,
+		reporters:['mocha','coverage']
 	})
 })
 
