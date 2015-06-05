@@ -23,6 +23,7 @@
     "gulp": "^3.8.11",
     "gulp-karma": "0.0.4",
     "gulp-live-server": "0.0.17",
+    "gulp-protractor": "^1.0.0",
     "istanbul": "^0.3.14",
     "karma": "^0.12.35",
     "karma-coverage": "^0.3.1",
