@@ -1,3 +1,58 @@
+# Angular TDD Examplar
+## Introduction
+
+This Angular TDD is an example of Angular App build with running tests in mind.
+
+You can clone this repository and use it as a basis for your app, or use it to learn about Test Driven Development with Angular.
+
+## Usage
+
+1. Clone or unzip the Git repository to your workstation.
+2. Install dependencies with npm install; bower install;
+3. Install Karma dependencies globally with `npm install -g karma karma-cli karma-protractor karma-coverage istanbul webdriver-manager mocha`
+4. Run the application using the instructions in the Gulp seciton.
+
+### Directory Structure
+
+```
+   /app/ 												// where our app is
+	 --/scripts/  								// location of our app logic
+	 --/index.html
+ 	/test/ 												// tests files
+	 --/coverage/									// generated folder by istanbul
+	 --/e2e/ 											// end to end tests
+	 --/spec/ 										// unit tests for app
+	 --/protractor.config.js/  		// set up for protractor
+	 --/server.spec.js/   				// server unit tests
+	/karma.conf.js								// karma setup
+```
+
+### Gup Tasks Helper
+#### Run tests and serve
+To run tests and then serve if the tests pass, run `gulp` (default task)
+
+#### Generate and Serve Code Coverage Metrics
+To generate and then view your code coverage report, run `gulp coverage`
+
+#### To Serve and debug tests
+Tests can be debugged in the browser by serving them with `gulp serve-test`
+
+#### To run end-to-end tests with protractor
+To automatically run Selenium and run your e2e tests, run `gulp protractor`
+
+#### To run automated browser tests with Karma
+To run all unit tests in every configured browser, run `gulp test-browser`
+
+#### To run all tests one after the other
+To run each tests suite without them conflicting, run `gulp test`
+
+#### To test the Express server
+To test the express server, run `gulp test-server`
+
+#### To serve the app
+To serve the app, run `gulp serve` (also runs tests)
+
+
 ## Glossary
 
 ### Jasmine
