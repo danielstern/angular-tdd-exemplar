@@ -1,0 +1,695 @@
+commit 648d6bd5da86fe96117d7e8a5fd65ce07edcda53
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri Jun 5 08:04:50 2015 -0400
+
+    course complete
+
+commit 1c1655c4e80122817220b7aa59293923d49c13dd
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Thu Jun 4 13:43:45 2015 -0400
+
+    end of code coverage chapter
+
+commit ef2ef17b60d5b491b2b1b0ea193c2c02ac90f560
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Thu Jun 4 08:35:59 2015 -0400
+
+    end implement istanbul text server
+
+commit d4e62fed1b1c7f24528e4071b27502b564110616
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Thu Jun 4 08:02:48 2015 -0400
+
+    end test directive
+
+commit 1c68d6bfdbf8a6326e17eb1d651f866fea3f184e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Wed Jun 3 08:20:05 2015 -0400
+
+    end test filters
+
+commit 7db45acfa4481c1158cba5849fc142e4d0d66b1b
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Wed Jun 3 08:02:16 2015 -0400
+
+    finish testing contollers
+
+commit 2cf51b58365f6eeb27eaf189375aa20662927c6c
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Wed Jun 3 07:43:56 2015 -0400
+
+    end lesson on httpbackend
+
+commit a3ba11d6d96fcf227ce041677022b2081dddd931
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Wed Jun 3 07:34:20 2015 -0400
+
+    end lesson on module on inject
+
+commit f4cc1a7a20a53fffd3dd91c02909ffd809bd566e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue Jun 2 07:29:11 2015 -0400
+
+    end-lesson-4
+
+commit 0189cecd06b3f5498b11387668a70ff5fc72c27f
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue Jun 2 07:17:40 2015 -0400
+
+    end lesson 3
+
+commit d915e96efa7bc7bf4939e6693cfdca2efc15cb4e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue Jun 2 06:44:50 2015 -0400
+
+    end lesson 2
+
+commit 47647593b0fa369a0198374b93e663572d47fe75
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue Jun 2 06:17:11 2015 -0400
+
+    finish lesson one
+
+commit c4eebd63d04de7d2f3e14a30a01f77939811d728
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Wed Apr 1 05:55:41 2015 -0400
+
+    removed all finished files
+
+commit 5d0dc8077ec637d682e289ca6c769d8ae36c2f0c
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue May 19 10:17:19 2015 -0400
+
+    Fixed bug in contact controller. Added additional styles. styles are very good now.
+
+commit 84f9886affb160af4b16774443fe1d27566547cc
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue May 19 10:09:08 2015 -0400
+
+    styles comin along. fixed bug in gulpfile.
+
+commit aeba1405f1e6552272461d81390767673ba709c8
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue May 19 09:51:35 2015 -0400
+
+    Added additional styles. Lookin good :facepunch:
+
+commit 9f0c400ec04fff13c122b4002c32bf8b9c01b2d8
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue May 19 09:12:07 2015 -0400
+
+    Fixed a few more dependencies that could cause tests to fail.
+
+commit b352b913828ad83dd5f54ff5ef1fbf259d2c8283
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Tue May 19 09:08:33 2015 -0400
+
+    Fixed test over. The listener on 3000 was not being closed.
+
+commit d8866dd1de850f6603b8c02b06e61fb0031facbb
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 20:33:06 2015 -0400
+
+    Add protractor to test task. Renamed coverage to serve-coverage.
+
+commit 5f224222544633820057efbfd5bc32855ec3e5d4
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 20:30:40 2015 -0400
+
+    got protractor to exit with process exit
+
+commit 654193de13dac66046c3716422423205635f4b3d
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 20:28:15 2015 -0400
+
+    tests work. doesnt auto close but oh well.
+
+commit a586801f14b03933e6708cf8ee39138dbf7ca619
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 20:14:51 2015 -0400
+
+    Fixed bug in code revealed thanks to E2E tests. :100:. cleaned up gulp file. currently trying to get gulp to exit correctly. selenium server is not closing.
+
+commit cbd0f00c2d491485872a38802e3b63367d0148ff
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 20:07:00 2015 -0400
+
+    protractor tests working. adding refinements.
+
+commit 35d2079e4bda014140c46227ba918778e364c2ad
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 19:58:50 2015 -0400
+
+    adding protractor tests. working on it but its slow stuff.
+
+commit fbb6e69cd53891b43c359256e6089923fbd84e75
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 19:32:47 2015 -0400
+
+    developing end to end tests. cleaned up cruft from addcontact. tests let us do this!
+
+commit 61f670325758166a0b5cc4e8d130fa65cbda8418
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 19:11:49 2015 -0400
+
+    Added various dependencies. Installed protractor. Also installed selenium with manual command line input detailed in new snippets file. include copied spec from example. created working config file.
+
+commit c314e61af212dc538502fae56ab7ca3b97cf54d8
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 18:16:40 2015 -0400
+
+    Added gulp coverage for displaying code coverage with Istanbul!
+
+commit 4204fabf309dbeadca26496afdc53a786626458b
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 18:14:37 2015 -0400
+
+    not workin
+
+commit b55f4f41703636076306a4e860f6af19f9d34cff
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:42:27 2015 -0400
+
+    Fix subdirectory for coverage to allow for serve-test. Cleaner coverage directory.
+
+commit 887871f982d31729e1ad8d58487121992177cce7
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:40:44 2015 -0400
+
+    Add coverage to Gitignore. It is not nececessary to commit it to the directory.
+
+commit 7e5c320c5f7d8086acad94fbcdcda9686d06231e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:39:15 2015 -0400
+
+    remove cvrg folder
+
+commit 58086d60383b7bbb306f0de1bd0eabecd501cdb4
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:38:14 2015 -0400
+
+    Made two coverage reporters.
+
+commit aed789c08a3bfb76d01e52689fd7767614173473
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:32:04 2015 -0400
+
+    created coverage directory. coverage works.
+
+commit 28bbb416bf50fb0d8f7342efceccd9949906aa1a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:25:38 2015 -0400
+
+    CODE COVERAGE!!! ... has been implemented using Istanbul. It is important to set the settings for karma in gulpfile as they override karmafile
+
+commit 5e8c7c98b8b90a42435263cc735eb33644844f1f
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 17:13:24 2015 -0400
+
+    gulp throwing format error
+
+commit b0bbf19d9447a20284419755debe39e26a3eeee2
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 16:58:55 2015 -0400
+
+    simplify control test
+
+commit 85dce088b44b940df4ea8c7d58cdaab456949015
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 16:57:46 2015 -0400
+
+    broke tests into smaller files.
+
+commit 7e83eaf1e44b41e5b0c06f9b1eaaa3b49452f9d5
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 14:26:15 2015 -0400
+
+    cleaning up contact service
+
+commit 0979322bca6fd8777ab21c7888cd518e5856056a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 14:19:43 2015 -0400
+
+    tests working.
+
+commit 4e1bd6f5ffec327eb88e1542ef32ab73a174ebf6
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 14:10:02 2015 -0400
+
+    broke up some code!
+
+commit ba5d0b827bd5bed7684db2ae80b65162327348c0
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 14:04:42 2015 -0400
+
+    wip
+
+commit 0269f4339c1cb7e8e5d3640f06e3bff782d4570a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 14:04:31 2015 -0400
+
+    wip
+
+commit d1bb0075449233fbea9d77e325ef0f3631e38d60
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 11:37:04 2015 -0400
+
+    update test spec
+
+commit c0661ce731408b88e86e18b758b060942983f138
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 11:32:25 2015 -0400
+
+    Added second unit test and cleaned up directive. Directive is well tested!!
+
+commit 26c6be207533cb0bb6588f581267c05f345868cf
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 11:29:17 2015 -0400
+
+    WIP: Got the directive test working!
+
+commit 4062e2c3facd9440b73f8c24dcf19b9faa5834fa
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 10:56:37 2015 -0400
+
+    Added additional tests for an ironclad filter.
+
+commit 08489f2cf9b56d0249fd0354f61e3d53ac53e898
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 10:37:50 2015 -0400
+
+    Added an implemented a simple filter.
+
+commit b4070b0df97a7d7ef7b81a0fd40210d34f47194d
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 10:31:08 2015 -0400
+
+    Added simple Avatar directive. Now this project has directives, services, modules and controllers. Not bad!
+
+commit b1e84cf93cac19c7fa0e2a77b78f0a9f46d93d24
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 10:21:59 2015 -0400
+
+    Correct some tests.
+
+commit ac0f956f4a2a89e590c8441cd877340729a12adf
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 09:57:30 2015 -0400
+
+    cleaned up some things
+
+commit 79733d95305c525fc7313a3ef3216c1673a1feb4
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 09:49:31 2015 -0400
+
+    update contact list logic to prevent bug.
+
+commit 4b97fdb0b8a6438552b502483324f931f3075944
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Mon May 18 09:44:01 2015 -0400
+
+    Added additional test. Fix bug in app.
+
+commit 5796ac81dd91f261bbd33a9826eef2a19c664896
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 19:51:12 2015 -0400
+
+    added additional test for add contact
+
+commit 615c8b41788d0a035136fdc4b0490a1f28e471f3
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 19:37:03 2015 -0400
+
+    added error handling for add contact
+
+commit 1895187724050854ffc6a4d2a030ed7bc80a9616
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 15:59:26 2015 -0400
+
+    Completed tests and test spec for adding contacts. Works nicely. Tests are cool.
+
+commit 32109071b5a6b94ae7bbce8daa9022277fa1401e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 15:46:51 2015 -0400
+
+    Added a get single contact route and tests. Tests really help you develop backend code since it is harder to debug than front end code.
+
+commit a15d0f294f532464eb7b05bd1ab208c21f0c7bd8
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 15:36:22 2015 -0400
+
+    Added second express test. Look at me! I'm writing Express tests! Yeehaw! :facepunch:
+
+commit e8d6f5313af8a04806a996e04387281fcac95678
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 15:21:30 2015 -0400
+
+    Added a test for Post using Cors and Supertest.
+
+commit c1bfaa614377b304740055847d26289ae53542fc
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 14:28:13 2015 -0400
+
+    i am fairly optimistic at this point.
+
+commit fb8959a4e32dbd91df31da903f30197473a84a82
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 14:15:09 2015 -0400
+
+    cleanup
+
+commit 41af20594397b35762a402e7975c3785a738d716
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 14:12:28 2015 -0400
+
+    moved validation to another file and spec
+
+commit c357277634ae7556cd2cf1b191e820c589e46358
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 12:04:57 2015 -0400
+
+    Converted validation into isomorphic module.
+
+commit 519a6b499e62576d89b47e7ccda9508ff01f9103
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 12:01:50 2015 -0400
+
+    externalized validation for isomorphism
+
+commit 1c0d7d6bcf39ac042caf657bd9ace504258144ca
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 11:39:54 2015 -0400
+
+    Wrote some tests FIRST! This is an example of very practical TDD, where the server has complex requirements that you do not want to mix up.
+
+commit 9def1b30dcc4705bf57aa6a16ad949ee7117fa6d
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 11:29:02 2015 -0400
+
+    Transplanted a test from app spec to server spec.
+
+commit 74a903b09add427d52685741b36e4d8bb3f850b6
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 11:19:14 2015 -0400
+
+    clean up gulpfile
+
+commit 679eef64d4b8a7b3d366c74de7bdbfd9117d501f
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 11:16:05 2015 -0400
+
+    add some smaple test questions
+
+commit 80b7728e3e86933d17c4b1f095fc5740b80ae99c
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 11:14:47 2015 -0400
+
+    gulp test spec complete. all tests exit properly and are nicely formatted. quite some good stuff here!
+
+commit 095c1eb97bea97bd2e909eb499e68426ae63c204
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 10:55:03 2015 -0400
+
+    updated gulp file to use better reporters. added extra dependencies.
+
+commit bc976e43003707072d1fec39187f594f0e4458ad
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 10:34:47 2015 -0400
+
+    implemented first test using supertest and node modules
+
+commit 889241e14386f1f9954a7f04fc47736f2c815606
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 09:55:11 2015 -0400
+
+    Added additional gulp tasks to facilitate server testing.
+
+commit 8c864652c940baf0a45f5c4d5c34999dfb701016
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 09:15:15 2015 -0400
+
+    Change test style to not use backend. Add some more scaffolding for adding contacts. Could using a real DB make sense here, or maybe omit the DB altogether, front end testing providing a very rich grounds for tutorial material as it is?
+
+commit 0e83d2576c59aca613565cb0f8a291acfa40f2b2
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 08:49:35 2015 -0400
+
+    Added interface to add a new contact.
+
+commit 69ad2f0e1d51b8debbb5bc2a7af31b02a2baa4d9
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 08:41:24 2015 -0400
+
+    update readme
+
+commit eae4a6da2a7aaa57ac585468a68d05bf85269c63
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 08:38:58 2015 -0400
+
+    added email validators, and temporary removed code that validates db data
+
+commit d940d717ddacd74cc272fbce15c7ddde18529f29
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 08:32:31 2015 -0400
+
+    wrote age tests
+
+commit af5cb22a1a22b5659ba926972f534a356ff4be7f
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sun May 17 08:18:24 2015 -0400
+
+    add rest of validation functions
+
+commit b06e3d68c15d2132a63c854c68df8f7afa59a4d7
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 22:52:33 2015 -0400
+
+    update readme
+
+commit 159b6c01a0debb70d4dfc41adbb79d8f965da77a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 22:50:54 2015 -0400
+
+    refactored validation logic and validation testing logic.
+
+commit 280364fb64935dd3fbeb00eaf5f08ae7bd5cd745
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 22:43:41 2015 -0400
+
+    add 1.5 testing with jquery! yeah
+
+commit 35522ad016ae2e4439c7d898d2c5f66e8c5c52ea
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 22:30:16 2015 -0400
+
+    fix all tests by going with non e2e mocks. e2e mocks are for backend use.
+
+commit a622960d6186dbc7d2a1fc926149f3a2c08850b4
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 22:09:24 2015 -0400
+
+    sigh
+
+commit e2cbce21178ce63c97d6387691a9703c4dfe2c4d
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 21:49:41 2015 -0400
+
+    add tests for the name validator with not ok, false and ok
+
+commit 978cce746534a4399957260a3fef20f3f7c79b50
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 21:41:50 2015 -0400
+
+    add some scaffolding for validation.
+
+commit 98909a3500bb6e61c5dcc3964b7bd4c092f4d11c
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 20:36:06 2015 -0400
+
+    Add tests for validation helper.
+
+commit de9ffe9c066e6382651ae54cf92766f715371bec
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 20:29:34 2015 -0400
+
+    added another test for the validation helper. commented out the controller test since it was actually failing, and i am not sure how to get it to pass just quite yet.
+
+commit 4524967f4399f8b5093cda744517523b7f699de0
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 20:22:47 2015 -0400
+
+    more scaffold thar
+
+commit cd1e40966ce144d72caeeb1612aa7e37d8fb965e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 20:19:34 2015 -0400
+
+    Scaffold adding a new contact.
+
+commit 53e39998376e89c64407919541573c3625164252
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 19:44:17 2015 -0400
+
+    Replaced mocks with e2e. works for some inexplicable reason. best not to call flush with e2e? I really do not know.
+
+commit fda0db8f944ffcf5019672d3164558ae41c6d03d
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 19:41:17 2015 -0400
+
+    interesting
+
+commit b54441a3b33026a45f0d411d0488898d095eb336
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 19:35:40 2015 -0400
+
+    Implemented asynchroncity using httpBackened and ngMocks.
+
+commit 5b5c146b63009f7cdface9a0f3894e5fb5039719
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 19:02:24 2015 -0400
+
+    Work through difficulties with angular-mock e2e being buggy.'
+
+commit e1f9817258c86fb86cf0ca6a649140744560c1f2
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 18:41:14 2015 -0400
+
+    workin on it
+
+commit 4728e7105865c4d9a338884aa98a08f2c40dbe05
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 12:10:47 2015 -0400
+
+    using serve-test to troubleshoot my tests
+
+commit 0615760d1254a6a8936a53412e5e54d55abdf30a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 11:29:53 2015 -0400
+
+    Go asynchronous and notice our tests fail.
+
+commit c924badfe54ab58fc51024430147a1854950f1a4
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 11:24:17 2015 -0400
+
+    Create DB file with Data for async demonstration purposes. Modified gulpfile to refresh on server reload (retroactive). Modify server.js to do simple synchronous file read.
+
+commit fd1f7285df0c185be8596c8a4634dc69663222eb
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 11:00:04 2015 -0400
+
+    Add Gulp Live Server. Update Gulp Serve to run http server at the same time.
+
+commit 5e48ed8ace743de1c540b878421263fdf71c5a48
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 09:14:30 2015 -0400
+
+    Add tests for contacts. Add a nested test suite. Use to have property expectation.
+
+commit e8ff3066869a51e94e2c6dc77ca606ed2853a2fc
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 09:02:00 2015 -0400
+
+    Add new default contacts to contact service as Placeholder for backend. Updated view to display contacts.
+
+commit d7cff2e2613ecec9ec71d8f8e0edd767b0cf361e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:53:46 2015 -0400
+
+    Add scaffold for server.js to be backend.
+
+commit ba8ebf2a0a918e64f80dbde8a205f7e02e9d7791
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:51:13 2015 -0400
+
+    Update Gulp to run Test every time a change occurs while serving.
+
+commit 84c146fa38139d4e0d9b72e7297f6d5581803b1a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:44:04 2015 -0400
+
+    Update Gulp Test to run automatically before Gulp Serve runs. If tests fail, Gulp Serve will not run.
+
+commit 275e45a212aed177826c85913ba8233dc35c5188
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:39:26 2015 -0400
+
+    Update serve test to run tests automagically.
+
+commit 37c129e16f4a51380f82fd5b260f9dfd2c9ef25a
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:37:10 2015 -0400
+
+    add test for controller
+
+commit 4f3527e09705d1339ba53879be7aca58f1a8c4be
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:25:10 2015 -0400
+
+    Add contact list controller. Add basic contact view.
+
+commit 6b047f9d64fa3e067a9c76e84952ac9963d9b946
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Sat May 16 08:18:52 2015 -0400
+
+    Add terminal tests. Add karma. Add karma-mocha. Restructure tests slightly to allow both karma and mocha to work.
+
+commit 7a0544786d4c1f48cc5197d765f18b832581bc6e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 22:34:59 2015 -0400
+
+    Test first service. Use angular inject and angular module. Use non trivial assertion isArray
+
+commit 6749215d9ffaba2afb319ba219d44ac794e56752
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 22:13:15 2015 -0400
+
+    gulp serve-test working!!!
+
+commit beb1227b6cddbf072510ba0ae7392c0637db8867
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 22:12:10 2015 -0400
+
+    update gulpfile, add dependencies
+
+commit 796669526ed8de4738ed4dee75cab10ffbf61720
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 22:04:31 2015 -0400
+
+    scaffold first test
+
+commit 22f9a7ed55607924c2ca9433504e96305b63bc4e
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 21:49:43 2015 -0400
+
+    add to glossary
+
+commit a0ae151c51120bfee35aba14c2b21b27701c7d57
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 21:29:59 2015 -0400
+
+    add first service
+
+commit f127d8641c59cdc6a4b99601ba698c9596c310d8
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 21:23:32 2015 -0400
+
+    Add app.js and create angular module.
+
+commit 8364bf985434aeb0e57ce8aa079388774c1e58a5
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 21:20:13 2015 -0400
+
+    scaffold browser sync and index file
+
+commit 84a08674c4e006f117f44c6937479b246c84b752
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 21:02:39 2015 -0400
+
+    scaffold gulpfile, install dependency
+
+commit 0654c291efb798e5eacdafc277e77a645851647f
+Author: Daniel Stern <daniel@danielstern.ca>
+Date:   Fri May 15 20:53:46 2015 -0400
+
+    set up initial files
