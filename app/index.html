@@ -1,14 +1,21 @@
 <head>
 	<script src="bower_components/angular/angular.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="styles/main.css">
+	<title>
+	    The Ironclad Address Book
+	</title>
 </head>
 <body ng-app=AddressBook>
+<div class="app-title">
 	<h1>
 		Contactical
 	</h1>
 	<h2>
 	    The Ironclad Address Book
 	</h2>
-	<div ng-controller=ContactController>
+</div>
+	<div ng-controller=ContactController class="contact-list inline-module">
 		<div ng-repeat='contact in contacts'>
             <h4>
                 <span class=contact-name>
@@ -26,7 +33,7 @@
              </p>
 		</div>
 	</div>
-	<div ng-controller=AddContact>
+	<div ng-controller=AddContact class="add-contact inline-module">
 	    <form ng-submit="addContact()">
             <h3>Add A New Contact</h3>	
             <label>
